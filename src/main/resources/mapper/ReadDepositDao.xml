@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiye.mir.dao.mybatis.ReadDepositDao">
+    <resultMap id="deposit" type="java.math.BigDecimal">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="deposit" jdbcType="DECIMAL" property="deposit" />
+    </resultMap>
+
+    <sql id="Deposit_List">
+      id, deposit
+    </sql>
+    <select id="selectRmqConfigs" resultMap="deposit">
+        select
+        <include refid="Deposit_List" />
+        from user_balance_sheet
+        where  uid = userId
+    </select>
+</mapper>
