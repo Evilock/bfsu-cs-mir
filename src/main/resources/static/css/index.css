@@ -1,0 +1,303 @@
+*{margin:0;padding:0;}
+p,h1,h2,h3,h4,h5,h6,d,dt,dd,ol,ul,li{
+    margin: 0px;
+    padding: 0px;
+}
+
+li{list-style:none;}
+a{text-decoration:none;color: #000000;}
+
+.fl{float: left;}
+.fr{float: right;}
+.clearFixe:after{
+    content:"";
+    display: block;
+    clear:both;
+}
+/*设置居中*/
+.main{
+    width:900px;
+    margin:0 auto;
+}
+
+.header{
+    height:160px;
+}
+
+.header .h_top{
+    height :40px;
+    background: #32373e;
+}
+
+.header .h_top .topCon{
+    height:40px;
+}
+
+.header .h_top .topCon .conLeft{
+    height: 40px;
+    line-height: 40px;
+}
+.header .h_top .topCon .conLeft .leftTxt1{
+    height:40px;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .logo{
+    font-size: 22px;
+    color:#00b38a;
+    margin: 0 auto;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .city{
+    font-size: 15px;
+    color:#00b38a;
+}
+.header .h_top .topCon .conLeft .leftTxt1 .changecity{
+    font-size: 17px;
+    color:#afb5c0;
+    margin-right: 36px;
+}
+
+
+.header .h_top .topCon .conLeft .ulList{
+    font-size:14px;
+
+}
+
+.header .h_top .topCon .conLeft .ulList li{
+    float:left;
+    width:100px;
+    text-align: center;
+}
+
+.header .h_top .topCon .conLeft .ulList li a{
+    color:#a3b4a7;
+}
+
+.header .h_top .topCon .conLeft .ulList li:first-child{
+    background: #24282c;
+}
+
+.header .h_top .topCon .conLeft .ulList li:first-child a{
+    color:#fff;
+}
+
+
+.header .h_top .topCon .conRight{
+    width: 200px;
+    height: 40px;
+
+}
+
+.header .h_top .topCon .conRight .ulList{
+    line-height: 40px;
+    font-size: 15px;
+}
+
+.header .h_top .topCon .conRight .ulList li{
+    float:left;
+    width:90px;
+}
+
+.header .h_top .topCon .conRight .ulList li a{
+    display: block;
+    color: aliceblue;
+}
+
+.header .h_top .topCon .conRight .ulList li .login{
+    padding-left: 28px;
+}
+
+/*
+.header .h_top .topCon .conRight .ulList li .btn span{
+    display:block;
+    width:18px;
+    background-image: url();
+    background-repeat: no-repeat;
+}
+*/
+
+.header .h_bottom{
+    height:120px;
+    background: #00b38a;
+}
+
+.header .h_bottom .botCon{
+    height:120px;
+}
+
+.h_bottom .botCon .conLeft{
+    position: relative;
+    width:800px;
+    height:120px;
+    background:  url(..)no-repeat;
+    background-size:226px 100%;
+}
+
+.h_bottom .botCon .conRight{
+    width:454px;
+    height:120px;
+    position: relative;
+}
+
+.h_bottom .botCon .conRight .btnBox{
+    height:35px;
+    position: absolute;
+    top:40%;
+}
+
+.h_bottom .botCon .conRight .btnBox .inputBox1{
+    width:138px;
+    height:36px;
+    border: none;
+    text-indent: 10px;
+    margin-right: 25px;
+}
+
+.h_bottom .botCon .conRight .btnBox .inputBox2{
+    width:138px;
+    height:36px;
+    border: none;
+    text-indent: 10px;
+}
+
+.h_bottom .botCon .conRight .btnBox .inputBox3{
+    width:63px;
+    height:36px;
+    border: 1px solid ghostwhite;
+    background-color: #00b38a;
+    color:white;
+    font-size: 25px;
+    margin-right: 25px;
+    background: transparent;
+}
+
+.h_bottom .botCon .conLeft .imgBox{
+    position: absolute;
+    top: 32px;
+    left:232px;
+    font-size: 30px;
+    color: white;
+}
+.h_bottom .botCon .conLeft .txBox{
+    position: absolute;
+    top: 66px;
+    left:232px;
+    font-size: 25px;
+    color: white;
+}
+
+/*search area*/
+.sear{
+    height:132px;
+    background: #f2f5f4;
+}
+
+.sear .searCon .main{
+    width: 900px;
+    background: #81ad1b;
+}
+
+.sear .searCon .main .content_a{
+    height:132px;
+    width: 250px;
+    background: #cdee80;
+    margin:0 auto;
+}
+.sear .searCon .main .content_a .inputFirst input{
+    width: 50px;
+    height: 50px;
+
+
+}
+.sear .searCon .main .content_a .inputSecond input{
+
+    width: 50px;
+    height: 50px;
+}
+
+.sear .searCon .main .content_m {
+    width:400px;
+    height:132px;
+    background: #efe858;
+}
+
+.sear .searCon .main .content_m .transferButton{
+
+}
+
+.sear .searCon .main .content_b{
+    height:132px;
+    width: 250px;
+    background: #cdee80;
+    margin:0 auto;
+}
+
+
+
+
+.banner{
+    height:400px;
+}
+.banner .pic3{
+    width:450px;
+    height :200px;
+    position: relative;
+}
+.banner .pic3 .txt4{
+    height :100px;
+    font-size :50px;
+    color: brown;
+    position: absolute;
+    top: 32px;
+}
+.banner .pic3 .txt5{
+    height :300px;
+    font-size :32px;
+    color: brown;
+    position: absolute;
+    top: 102px;
+}
+
+.banner .txt3{
+    width :400px;
+    background: blueviolet;
+    height :320px;
+}
+
+.banner .txt3 .ablumpic{
+    width:400px;
+}
+
+.content{
+    height:500px;
+    position: relative;
+}
+
+.content .content_a{
+    position: absolute;
+    margin-top: 100px;
+    font-size :32px;
+    color: brown;
+}
+
+.content .content_b{
+    margin-top: 100px;
+    font-size :32px;
+    color: brown;
+}
+
+
+.footer{
+    height: 100px;
+    background-color: #00b38a;
+}
+
+.footer .footer_upper{
+    font-size:20px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 30px;
+}
+.footer .footer_down{
+    font-size:20px;
+    text-align: center;
+    font-style: italic;
+}

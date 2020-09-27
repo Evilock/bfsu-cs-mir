@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<title>BFSU-CS-MIR</title>
+		<link rel="stylesheet" href="/static/css/index.css" >
+		<link rel="stylesheet" href="/static/css/buttons.css">
+	</head>
+	<body>
+		<div id = "box">
+			<div class = "header">
+				<div class = "h_top">
+					<div class = "topCon main">
+						<div class = "conLeft fl">
+							<div class = "leftTxt1 fl">
+								<a href = "" class = "logo">SHIYE</a>
+								<a href = "" class = "city">2020</a>
+								<a href = "" class = "changecity">【OK】</a>
+							</div>
+							<ul class = "ulList clearFixed fl">
+								<li><a href = "#">Start Now!</li>
+								<li><a href = "#">Introduction</li>
+								<li><a href = "#">Team</li>
+							</ul>
+						</div>
+						
+						<div class = "conRight fr">
+							<ul class = "ulList clearFixed fl">
+								<li><a href = "" class = "login">Login</li>
+								<li><a href = "">Register</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class = "h_bottom">
+					<div class = "botCon main">
+						<div class = "conLeft fl">
+							<div class = "imgBox">Music Source Separation</div>
+							<div class = "txBox">2020-9-27</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class = "sear">
+				<div class = "searCon">
+					<div class = "main">
+						<div class = "content_a fl">
+							<form method="post" action="/pages/getMusicFile" enctype="multipart/form-data">
+								<input type="file" class ="" name="file"><br>
+								<input type="submit" class="button button-action button-pill" value="提交">
+							</form>
+						</div>
+						<div class = "content_m fl">
+							<form>
+								<form method="post" action="/pages/separate" >
+									<a href = "" class="button button-3d button-caution" style="align-self: center">Transfer！</a>
+								</form>
+							</form>
+						</div>
+						<div class = "content_b fr">
+							<form method="post" action="/pages/downloadTracks" enctype="multipart/form-data">
+								<a href = "" class="button button-3d button-primary button-rounded">download!</a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class = "banner">
+				<div class = "main">
+					<div class = "txt3 fl">
+						<img class = "ablumpic" src = "/static/img/1.png">
+					</div>
+					<div class = "pic3 fr">
+						<div class = "txt4" style = "">
+							<strong>在线人声伴奏分离</strong>
+						</div>
+						<div class = "txt5">
+							本项目拟从深度学习的角度搭建合适的模型来完成高效高质量的人声伴奏提取，
+							以推动音乐产业、音乐教育、外语教育产业等的发展。<br>
+						</div>
+
+					</div>
+				
+				</div>
+				
+			</div>
+			<!--
+			<div class = "content"></div>
+			
+			<div class = "sear"></div>
+			-->
+			<div class = "footer">
+				<div class = "footer_upper">
+					北京外国语大学信息科学技术学院大创团队研发
+				</div>
+				<div class = "footer_down">
+					from 2020 to 2020
+				</div>
+			</div>	
+		</div>
+	</body>
+</html>

@@ -9,8 +9,8 @@ import com.shiye.mir.service.UploadFileService;
 import com.shiye.mir.utils.CheckAuthorityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +18,8 @@ import java.io.OutputStream;
 import java.math.BigDecimal;
 
 @Slf4j
+@Controller
+@RequestMapping(value = "/pages",produces = "application/json;charset=UTF-8")
 public class AdminController {
 
     @Autowired
@@ -29,19 +31,19 @@ public class AdminController {
     @Autowired
     public GetSeparatedService getSeparatedService;
 
-    @RequestMapping("/hello")
+    @RequestMapping("/index")
     public String index(){
-        return "hello";
+        return "index.html";
     }
 
     /**
      * step1: 上传将要被分轨的音频文件，存入缓存
      * @param file 上传的音频文件
      */
-    @RequestMapping(value = "/getMusicFile")
-    public String getMusicFile(@RequestParam(name = "file", required = false) MultipartFile file,
-                               @RequestParam(name = "userId", required = false) Long userId){
-        return uploadFileService.uploadMusic(file,userId);
+    @PostMapping("/getMusicFile")
+    @ResponseBody
+    public String getMusicFile(@RequestParam("file") MultipartFile file) {
+        return uploadFileService.uploadMusic(file);
     }
 
     /**
