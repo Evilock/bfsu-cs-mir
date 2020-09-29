@@ -17,15 +17,10 @@ public class DownloadFileServiceImpl implements DownloadFileService {
 
     */
     @Override
-    public OutputStream downLoadFile( Long uid, HttpServletResponse response){return null;}
-    /*    try {
-            return redisDao.getFromRedis(response, uid);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public OutputStream downLoadFile( Long uid, HttpServletResponse response){
+        return null;
     }
-    */
+
     public void closeInputStream(InputStream in){
         if (in != null) {
             try { in.close(); } catch (IOException e) {

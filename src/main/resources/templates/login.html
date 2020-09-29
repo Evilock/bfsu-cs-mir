@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/css/buttons.css">
+    <script src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/login.js"></script>
 </head>
 <body>
     <div class = "conRight fr">
         <div class = "btnBox">
-            <input type = "text" placeholder="输入手机号" class = "fl inputBox1">
-            <p class = "fl">
-                <input type = "text" placeholder="验证码" class = "inputBox2">
-                <a href="" style = "margin-right: 15px;">验证</a>
-            </p>
-            <input type = "submit" value="登陆" class = "fl inputBox3">
+            <div>
+                <label>账号</label>
+                <input name = "userid" type = "text" placeholder="输入账号" class = "fl inputBox1">
+            </div>
+            <div class = "fl">
+                <label>密码</label>
+                <input name = "password" type = "text" placeholder="输入密码" class = "inputBox2">
+            </div>
+            <div class = "fl">
+                <a href="" style = "margin-right: 15px;">更换验证码</a>
+            </div>
+            <div>
+                <input id = "submitTo" type = "submit" class = "button button-3d button-pill">
+            </div>
+            <div id = "responseFuck">
+
+            </div>
+
         </div>
     </div>
 </body>

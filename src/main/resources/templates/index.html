@@ -21,16 +21,16 @@
 								<a href = "" class = "changecity">【OK】</a>
 							</div>
 							<ul class = "ulList clearFixed fl">
-								<li><a href = "#">Start Now!</li>
-								<li><a href = "#">Introduction</li>
-								<li><a href = "#">Team</li>
+								<li><a href = "#">Start Now!</a></li>
+								<li><a href = "/pages/intro">Introduction</a></li>
+								<li><a href = "/pages/team">Team</a></li>
 							</ul>
 						</div>
 						
 						<div class = "conRight fr">
 							<ul class = "ulList clearFixed fl">
-								<li><a href = "" class = "login">Login</li>
-								<li><a href = "">Register</li>
+								<li><a href = "/login" class = "login">Login</a></li>
+								<li><a href = "">Register</a></li>
 							</ul>
 						</div>
 					</div>
@@ -49,21 +49,21 @@
 				<div class = "searCon">
 					<div class = "main">
 						<div class = "content_a fl">
-							<form method="post" action="/pages/getMusicFile" enctype="multipart/form-data">
+							<form method="post" action="/getMusicFile" enctype="multipart/form-data">
 								<input type="file" class ="" name="file"><br>
 								<input type="submit" class="button button-action button-pill" value="提交">
 							</form>
 						</div>
 						<div class = "content_m fl">
 							<form>
-								<form method="post" action="/pages/separate" >
+								<form method="post" action="/separate" >
 									<a href = "" class="button button-3d button-caution" style="align-self: center">Transfer！</a>
 								</form>
 							</form>
 						</div>
 						<div class = "content_b fr">
-							<form method="post" action="/pages/downloadTracks" enctype="multipart/form-data">
-								<a href = "" class="button button-3d button-primary button-rounded">download!</a>
+							<form method="get">
+								<a href = "/downloadTracks" class="button button-3d button-primary button-rounded">download!</a>
 							</form>
 						</div>
 					</div>

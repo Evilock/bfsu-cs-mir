@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 public class CheckAuthorityUtils {
 
     public static boolean checkDeposit(BigDecimal cost, Long uid){
-        return cost.compareTo(MysqlDao.getDepositByUid(uid)) == 1;
+        return cost.compareTo(MysqlDao.getDepositByUid(uid))>0;
     }
 }
