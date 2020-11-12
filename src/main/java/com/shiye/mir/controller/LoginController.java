@@ -3,16 +3,20 @@ package com.shiye.mir.controller;
 import com.shiye.mir.entity.vo.Response;
 import com.shiye.mir.service.LoginCheckService;
 import com.shiye.mir.utils.CommonUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 用户登录代码
  */
+@Slf4j
 @Controller
 @RequestMapping(produces = "application/json;charset=UTF-8")
 public class LoginController {
@@ -32,6 +36,7 @@ public class LoginController {
                                HttpServletRequest request){
         Response response = new Response();
         response.setId(CommonUtils.getUUID());
+
         if(!StringUtils.isNotEmpty(userid) || !StringUtils.isNotEmpty(password)){
             response.setBody("请输入用户名和密码！");
         }
@@ -51,8 +56,8 @@ public class LoginController {
     /**
      * 登出操作
      */
-    /*
-    @GetMapping(value = "/loginout")
+
+    @GetMapping(value = "/logout")
     public String loginout(HttpServletRequest request) {
         String info = "登出操作";
         log.info(info);
@@ -68,5 +73,5 @@ public class LoginController {
         log.info(info);
         return info;
     }
-    */
+
 }

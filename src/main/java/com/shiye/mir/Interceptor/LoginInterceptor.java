@@ -23,6 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object userInfo = session.getAttribute("userInfo");
         if (userInfo == null) {
             response.getWriter().write("Please Login In");
+            //response.sendRedirect(request.getContextPath()+"/wechatplatformuser/loginRBAC.html");
             System.out.println("未登录！！！");
             return false;
         } else {

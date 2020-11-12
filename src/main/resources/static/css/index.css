@@ -1,303 +1,117 @@
-*{margin:0;padding:0;}
-p,h1,h2,h3,h4,h5,h6,d,dt,dd,ol,ul,li{
-    margin: 0px;
-    padding: 0px;
-}
-
-li{list-style:none;}
-a{text-decoration:none;color: #000000;}
 
 .fl{float: left;}
 .fr{float: right;}
-.clearFixe:after{
-    content:"";
-    display: block;
-    clear:both;
-}
-/*设置居中*/
-.main{
-    width:900px;
-    margin:0 auto;
-}
 
+li{list-style-type :none;}
+
+.whole{
+    background-color:lightseagreen;
+    margin: 0 auto;
+
+}
+.blacksuit{
+    height: 50px;
+    background-color: black;
+}
 .header{
-    height:160px;
-}
-
-.header .h_top{
-    height :40px;
-    background: #32373e;
-}
-
-.header .h_top .topCon{
-    height:40px;
-}
-
-.header .h_top .topCon .conLeft{
-    height: 40px;
-    line-height: 40px;
-}
-.header .h_top .topCon .conLeft .leftTxt1{
-    height:40px;
-}
-.header .h_top .topCon .conLeft .leftTxt1 .logo{
-    font-size: 22px;
-    color:#00b38a;
+    width: 1400px;
+    height: 50px;
     margin: 0 auto;
 }
-.header .h_top .topCon .conLeft .leftTxt1 .city{
-    font-size: 15px;
-    color:#00b38a;
+
+.header .nav ul li{
+    float:left;/*让li元素左浮动*/
 }
-.header .h_top .topCon .conLeft .leftTxt1 .changecity{
-    font-size: 17px;
-    color:#afb5c0;
-    margin-right: 36px;
+.header .nav ul li a{
+    width:80px;/*设置元素宽为80px*/
+    color:#FFF;/*文字颜色是白色*/
+    font-size:16px;/*用12号字*/
+    display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
+    text-align:center;/*让文本居中*/
+    text-decoration:none; /*去掉下划线*/
+    position: relative;
+    top: 20%;
 }
 
-
-.header .h_top .topCon .conLeft .ulList{
-    font-size:14px;
-
+.middle{
+    height:650px;
+}
+.middle .middle1{
+    height: 250px;
+}
+.middle .middle1 .title{
+    color: #FFFFFF;
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 4px 6px 3px #000000;
 }
 
-.header .h_top .topCon .conLeft .ulList li{
-    float:left;
-    width:100px;
+.middle .middle1 .entitle{
+    color: #FFFFFF;
+    font-size: 35px;
     text-align: center;
 }
-
-.header .h_top .topCon .conLeft .ulList li a{
-    color:#a3b4a7;
-}
-
-.header .h_top .topCon .conLeft .ulList li:first-child{
-    background: #24282c;
-}
-
-.header .h_top .topCon .conLeft .ulList li:first-child a{
-    color:#fff;
-}
-
-
-.header .h_top .topCon .conRight{
-    width: 200px;
-    height: 40px;
-
-}
-
-.header .h_top .topCon .conRight .ulList{
-    line-height: 40px;
-    font-size: 15px;
-}
-
-.header .h_top .topCon .conRight .ulList li{
-    float:left;
-    width:90px;
-}
-
-.header .h_top .topCon .conRight .ulList li a{
-    display: block;
-    color: aliceblue;
-}
-
-.header .h_top .topCon .conRight .ulList li .login{
-    padding-left: 28px;
-}
-
-/*
-.header .h_top .topCon .conRight .ulList li .btn span{
-    display:block;
-    width:18px;
-    background-image: url();
-    background-repeat: no-repeat;
-}
-*/
-
-.header .h_bottom{
-    height:120px;
-    background: #00b38a;
-}
-
-.header .h_bottom .botCon{
-    height:120px;
-}
-
-.h_bottom .botCon .conLeft{
+.middle .middle1 .underline{
+    width:30%;
+    height: 10px;
+    background-color: azure;
     position: relative;
-    width:800px;
-    height:120px;
-    background:  url(..)no-repeat;
-    background-size:226px 100%;
+    left: 35%;
+    top: 5%;
 }
 
-.h_bottom .botCon .conRight{
-    width:454px;
-    height:120px;
+.middle .middle2{
+    height: 200px;
+}
+.middle .middle2 .pickbox{
+    width: 750px;
+    height: 140px;
+    background-color: azure;
+    margin: 0 auto;
     position: relative;
-}
+    top: 10%;
 
-.h_bottom .botCon .conRight .btnBox{
-    height:35px;
-    position: absolute;
-    top:40%;
 }
-
-.h_bottom .botCon .conRight .btnBox .inputBox1{
-    width:138px;
-    height:36px;
-    border: none;
-    text-indent: 10px;
-    margin-right: 25px;
-}
-
-.h_bottom .botCon .conRight .btnBox .inputBox2{
-    width:138px;
-    height:36px;
-    border: none;
-    text-indent: 10px;
-}
-
-.h_bottom .botCon .conRight .btnBox .inputBox3{
-    width:63px;
-    height:36px;
-    border: 1px solid ghostwhite;
-    background-color: #00b38a;
-    color:white;
-    font-size: 25px;
-    margin-right: 25px;
-    background: transparent;
-}
-
-.h_bottom .botCon .conLeft .imgBox{
-    position: absolute;
-    top: 32px;
-    left:232px;
-    font-size: 30px;
-    color: white;
-}
-.h_bottom .botCon .conLeft .txBox{
-    position: absolute;
-    top: 66px;
-    left:232px;
-    font-size: 25px;
-    color: white;
-}
-
-/*search area*/
-.sear{
-    height:132px;
-    background: #f2f5f4;
-}
-
-.sear .searCon .main{
-    width: 900px;
-    background: #81ad1b;
-}
-
-.sear .searCon .main .content_a{
-    height:132px;
+.middle .middle2 .pickbox .upload{
     width: 250px;
-    background: #cdee80;
-    margin:0 auto;
+    height: 140px;
+    float: left;
 }
-.sear .searCon .main .content_a .inputFirst input{
-    width: 50px;
-    height: 50px;
-
-
-}
-.sear .searCon .main .content_a .inputSecond input{
-
-    width: 50px;
-    height: 50px;
-}
-
-.sear .searCon .main .content_m {
-    width:400px;
-    height:132px;
-    background: #efe858;
-}
-
-.sear .searCon .main .content_m .transferButton{
-
-}
-
-.sear .searCon .main .content_b{
-    height:132px;
+.middle .middle2 .pickbox .transfer{
     width: 250px;
-    background: #cdee80;
-    margin:0 auto;
+    height: 140px;
+    float: left;
+
 }
-
-
-
-
-.banner{
-    height:400px;
+.middle .middle2 .pickbox .download{
+    width: 250px;
+    height: 140px;
+    float: left;
 }
-.banner .pic3{
-    width:450px;
-    height :200px;
+.middle .middle3 .sentence{
     position: relative;
+    top: 10%;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
 }
-.banner .pic3 .txt4{
-    height :100px;
-    font-size :50px;
-    color: brown;
-    position: absolute;
-    top: 32px;
+.middle .middle3{
+    height: 200px;
 }
-.banner .pic3 .txt5{
-    height :300px;
-    font-size :32px;
-    color: brown;
-    position: absolute;
-    top: 102px;
-}
-
-.banner .txt3{
-    width :400px;
-    background: blueviolet;
-    height :320px;
-}
-
-.banner .txt3 .ablumpic{
-    width:400px;
-}
-
-.content{
-    height:500px;
-    position: relative;
-}
-
-.content .content_a{
-    position: absolute;
-    margin-top: 100px;
-    font-size :32px;
-    color: brown;
-}
-
-.content .content_b{
-    margin-top: 100px;
-    font-size :32px;
-    color: brown;
-}
-
-
 .footer{
-    height: 100px;
-    background-color: #00b38a;
+    height:200px;
 }
-
-.footer .footer_upper{
-    font-size:20px;
-    text-align: center;
-    font-style: italic;
-    margin-top: 30px;
+.footer .packer{
+    height:30px;
+    background-color: black;
 }
-.footer .footer_down{
-    font-size:20px;
-    text-align: center;
+.footer .packer .container{
+    width:800px;
+    height: 30px;
+    margin: 0 auto;
+    color: white;
+}
+.footer .packer .container .footer_down{
     font-style: italic;
 }

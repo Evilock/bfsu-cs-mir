@@ -18,7 +18,7 @@ public class TestController {
     @RequestMapping({"/", ""})
     public Response test(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("index2");
         //return modelAndView;
         return new Response("11","fuck");
     }

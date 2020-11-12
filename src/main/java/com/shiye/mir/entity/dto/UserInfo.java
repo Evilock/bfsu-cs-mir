@@ -11,5 +11,7 @@ public class UserInfo {
 
     private String password;
 
+    private String email;
+
     private String nickName;
 }
