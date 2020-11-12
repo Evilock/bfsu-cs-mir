@@ -24,4 +24,10 @@ public class AdminController {
     @RequestMapping("/register")
     public String register() { return "register.html"; }
 
+    @RequestMapping("/help")
+    public String help() { return "help.html"; }
+
+    @RequestMapping("/self")
+    public String self() { return "self.html"; }
+
 }

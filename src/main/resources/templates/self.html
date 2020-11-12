@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>个人中心</title>
+        <link rel="stylesheet" href="/static/css/buttons.css">
+        <link rel="stylesheet" href="/static/css/register.css">
+        <link rel="stylesheet" href="/static/css/style3.css" />
+        <link rel="stylesheet" href="/static/css/index.css" >
+    </head>
+    <body style="overflow:scroll;overflow-y:hidden">
+<div class="whole">
+    <div class="blacksuit">
+        <div class="header">
+            <div class="nav fl">
+                <ul>
+                    <li><a href="/pages/login">登录</a></li>
+                    <li><a href="/pages/register">注册</a></li>
+                </ul>
+            </div>
+            <div class="nav fr">
+                <ul>
+                    <li><a href="/pages/index">首页</a></li>
+                    <li><a href="/pages/intro">产品介绍</a></li>
+                    <li><a href="/pages/team">团队</a></li>
+                    <li><a href="/pages/help">帮助</a></li>
+                    <li><a href="/pages/self">个人中心</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class = "infoma">
+            <div class="container">
+                <div class="container">
+                    <form action="/action_page.php">
+                        <div style="padding: 30px">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label> </label>
+                                </div>
+                                <div class="col-75" id="container">
+                                    <img src= "/"  class="pic-icon" id = "#image"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">姓名</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="#manager_name" name="firstname" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">密码</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="#password" name="lastname" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">邮箱</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="#email" name="lastname" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">手机号码</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="#mobile" name="lastname" readonly="readonly">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="rewrite">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">修 改</button>
+                <from action="" enctype="multipart/form-data" method="post">
+                    <a>
+                        <span>修改头像</span>
+                        <input type="file" id="fileUp" accept="image/png,image/jpeg">
+                    </a>
+                </from>
+                <!--    <input type="file" name="file1_1" id="file1_1">-->
+                <!--    <input type="button" value="上传" onclick="uploadFile('file1_1');" />-->
+
+
+
+
+
+                <!--    <a href="javascript:void(0)" onclick="uploadPhoto()">选择图片</a>-->
+                <!--    <input type="file" id="photoFile" style="display: none;" onchange="upload()">-->
+                <!--    <img id="preview_photo" src="" width="200px" height="200px">-->
+                <!--    <style>-->
+                <!--        img[src=""],img:not([src]){-->
+                <!--            opacity:0;-->
+                <!--        }-->
+                <!--    </style>-->
+            </div>
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                 id="myModal">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">编辑个人信息</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">用户名：</label>
+                                    <div class="col-sm-9">
+                                        <!--                            <input type="text" onblur="CheckNumber(this.value)"  class="form-control"  id="modal_cus_name"  placeholder="请输入新的用户名(数字)">-->
+                                        <input type="text" onblur="IsEmptyForm(this.value)" class="form-control"  id="modal_cus_name"  placeholder="请输入新的用户名"><div id="TiShi1"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">密码：</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" onblur="IsEmptyFormTwo(this.value)" class="form-control" id="modal_bj_prd" placeholder="请输入新的密码"><div id="TiShi3"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">邮箱：</label><div id="email"></div>
+                                    <div class="col-sm-9">
+                                        <input type="text" onblur="IsEmail(this.value)" class="form-control" id="modal_up" placeholder="请输入新邮箱"><div id="TiShi"></div>
+                                    </div>
+                                </div>
+                                <!--                    新增的电话号码-->
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">手机号：</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" onblur="ValidateMobile(this.value)" class="form-control" id="modal_mobile" placeholder="请输入新手机号"><div id="TiShi2"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="sava-edit-btn">保存</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "account">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
