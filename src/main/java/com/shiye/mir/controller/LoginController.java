@@ -24,7 +24,7 @@ public class LoginController {
     @Autowired
     private LoginCheckService loginCheckService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/pages/login")
     public String login(){
         return "login.html";
     }
