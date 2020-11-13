@@ -2,12 +2,12 @@ package com.shiye.mir.service.impl;
 
 import com.shiye.mir.dao.mybatis.UserInfoDao;
 import com.shiye.mir.entity.dto.UserInfo;
-import com.shiye.mir.service.LoginCheckService;
+import com.shiye.mir.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginCheckServiceImpl implements LoginCheckService {
+public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     private UserInfoDao userInfoDao;
@@ -19,5 +19,9 @@ public class LoginCheckServiceImpl implements LoginCheckService {
         }else{
             return false;
         }
+    }
+
+    public UserInfo getUserInfo(String uid){
+        return userInfoDao.selectPasswordByUid(uid);
     }
 }

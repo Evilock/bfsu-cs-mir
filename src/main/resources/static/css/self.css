@@ -1,0 +1,74 @@
+.selfCen{
+    font-size: 60px;
+    font-weight: bold;
+    height:100px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.bp{
+    height: 41px;
+}
+.coco{
+    width:800px;
+    height:600px;
+    margin: 0 auto;
+}
+
+.coco .infoma{
+    width: 360px;
+    background-color: #DDDDDD;
+    border:20px solid hsla(0,0%,100%,.5);
+    height:220px;
+}
+.coco .infoma .selfin .lll{
+    width: 100px;
+    font-weight: bold;
+    font-size: 30px;
+    height:40px;
+}
+
+.coco .infoma .selfin .rrr{
+    position: relative;
+    left: 10px;
+    font-size: 30px;
+    height:40px;
+}
+.coco .infoma .change2{
+    height:100px;
+}
+
+.coco .infoma .change2 .mm{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.coco .account{
+    width: 360px;
+    background-color: #DDDDDD;
+    height:220px;
+    border:20px solid hsla(0,0%,100%,.5);
+}
+
+.coco .account .account_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    height:50px;
+}
+.coco .account_balance{
+    font-weight: bold;
+    font-size: 30px;
+    height:70px;
+}
+.coco .account_mm{
+
+}
+
+.coco .account_mm .account_mm_charge{
+    margin: 0 auto;
+    text-align: center;
+    height:100px;
+
+}
+

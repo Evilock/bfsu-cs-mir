@@ -1,13 +1,12 @@
 package com.shiye.mir.controller;
 
 import com.shiye.mir.entity.vo.Response;
-import com.shiye.mir.service.LoginCheckService;
+import com.shiye.mir.service.UserInfoService;
 import com.shiye.mir.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,15 +21,19 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     @Autowired
-    private LoginCheckService loginCheckService;
+    private UserInfoService loginCheckService;
 
     @RequestMapping("/pages/login")
     public String login(){
         return "login.html";
     }
 
+
+    @RequestMapping("/pages/register")
+    public String register() { return "register.html"; }
+
     @ResponseBody
-    @RequestMapping(value = "check/{userid}/{password}", method = RequestMethod.POST)
+    @RequestMapping(value = "/pages/check/{userid}/{password}", method = RequestMethod.POST)
     public Response checkLogin(@PathVariable("userid") String userid,
                                @PathVariable("password") String password,
                                HttpServletRequest request){
@@ -43,7 +46,7 @@ public class LoginController {
         if(loginCheckService.checkPassword(userid,password)){
             //密码正确
             response.setBody("userid:"+userid+";password:"+password);
-            request.getSession().setAttribute("userInfo", userid + " - " + password);
+            request.getSession().setAttribute("userInfo", userid);
         }else{
             //密码不正确
             response.setBody("wrong userid or password!");
