@@ -2,6 +2,10 @@ package com.shiye.mir.enums;
 
 import lombok.Getter;
 
+/**
+ * @author fangshaozu
+ */
+
 @Getter
 public enum EnumSucceedStatus {
 

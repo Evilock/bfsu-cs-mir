@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiye.mir.dao.mybatis.DepositDao">
+
+    <resultMap id="BaseResultMap" type="com.shiye.mir.entity.dto.DepositEntity">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="deposit" jdbcType="VARCHAR" property="deposit" />
+    </resultMap>
+
+    <!--余额查询-->
+    <select id="selectDepositDao" resultType="com.shiye.mir.entity.dto.DepositEntity">
+        select * from user_balance_sheet where  id = #{id}
+    </select>
+
+    <!--余额更新-->
+    <update id="depositUpdate" parameterType="DepositEntity">
+        UPDATE user_balance_sheet SET deposit = #{newValue} WHERE id = #{id}
+    </update>
+</mapper>

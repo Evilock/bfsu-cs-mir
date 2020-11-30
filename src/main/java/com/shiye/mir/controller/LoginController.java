@@ -5,22 +5,23 @@ import com.shiye.mir.service.UserInfoService;
 import com.shiye.mir.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
  * 用户登录代码
+ * @author fangshaozu
  */
 @Slf4j
 @Controller
 @RequestMapping(produces = "application/json;charset=UTF-8")
 public class LoginController {
 
-    @Autowired
+    @Resource
     private UserInfoService loginCheckService;
 
     @RequestMapping("/pages/login")
@@ -39,42 +40,33 @@ public class LoginController {
                                HttpServletRequest request){
         Response response = new Response();
         response.setId(CommonUtils.getUUID());
-
         if(!StringUtils.isNotEmpty(userid) || !StringUtils.isNotEmpty(password)){
             response.setBody("请输入用户名和密码！");
+            log.info("Username | password miss!");
         }
         if(loginCheckService.checkPassword(userid,password)){
-            //密码正确
             response.setBody("userid:"+userid+";password:"+password);
             request.getSession().setAttribute("userInfo", userid);
+            log.info("LOGIN succeed, uid is:{}",userid);
         }else{
-            //密码不正确
             response.setBody("wrong userid or password!");
+            log.info("LOGIN failed, uid is:{}",userid);
         }
         return response;
     }
 
-
-
     /**
      * 登出操作
      */
-
     @GetMapping(value = "/logout")
-    public String loginout(HttpServletRequest request) {
-        String info = "登出操作";
-        log.info(info);
+    public String loginOut(HttpServletRequest request) {
         HttpSession session = request.getSession();
+        log.info("Log out, session is:{}",session.getAttribute("userInfo"));
         // 将用户信息从session中删除
         session.removeAttribute("userInfo");
         Object userInfo = session.getAttribute("userInfo");
-        if (userInfo == null) {
-            info = "登出成功";
-        } else {
-            info = "登出失败";
-        }
+        String info = userInfo==null?"Logout Done!":"Logout Failed!";
         log.info(info);
         return info;
     }
-
 }

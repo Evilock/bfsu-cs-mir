@@ -1,16 +1,20 @@
 package com.shiye.mir.dao;
 
-import com.shiye.mir.dao.mybatis.ReadDepositDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shiye.mir.dao.mybatis.DepositDao;
 
+import javax.annotation.Resource;
 import java.math.BigDecimal;
 
+/**
+ * MySQL Dao
+ * @author fangshaozu_sx
+ */
 public class MysqlDao {
 
-    @Autowired
-    private static ReadDepositDao readDepositDao;
+    @Resource
+    private static DepositDao depositDao;
 
-    public static BigDecimal getDepositByUid(Long uid) {
-        return readDepositDao.selectDepositDao(uid);
+    public static BigDecimal getDepositByUid(Integer id) {
+        return depositDao.selectDepositDao(id);
     }
 }

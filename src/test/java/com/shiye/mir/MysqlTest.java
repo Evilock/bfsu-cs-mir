@@ -25,7 +25,7 @@ public class MysqlTest {
 
     @Test
     public void testMybatis(){
-        UserInfo result = userInfoDao.selectPasswordByUid("test001");
+        UserInfo result = userInfoDao.selectUserInfoByLoginName("test001");
         System.out.println("-------------");
         System.out.println("nickName"+result.getNickName());
         System.out.println("uid"+result.getUserId());

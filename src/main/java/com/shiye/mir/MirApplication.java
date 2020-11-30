@@ -8,6 +8,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 
+/**
+ * 启动类
+ * @author fangshaozu_sx
+ */
 @MapperScan("com.shiye.mir.dao.mybatis")
 @SpringBootApplication
 public class MirApplication extends WebMvcConfigurationSupport {

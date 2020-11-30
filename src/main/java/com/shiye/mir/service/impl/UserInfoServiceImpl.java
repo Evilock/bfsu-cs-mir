@@ -3,17 +3,23 @@ package com.shiye.mir.service.impl;
 import com.shiye.mir.dao.mybatis.UserInfoDao;
 import com.shiye.mir.entity.dto.UserInfo;
 import com.shiye.mir.service.UserInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+/**
+ * 用户信息获取服务
+ * @author fangshaozu_sx
+ */
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
-    @Autowired
+    @Resource
     private UserInfoDao userInfoDao;
 
-    public Boolean checkPassword(String uid,String password){
-        UserInfo userInfo = userInfoDao.selectPasswordByUid(uid);
+    @Override
+    public Boolean checkPassword(String uid, String password){
+        UserInfo userInfo = userInfoDao.selectUserInfoByLoginName(uid);
         if(userInfo!=null){
             return password.equals(userInfo.getPassword());
         }else{
@@ -21,7 +27,8 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
     }
 
+    @Override
     public UserInfo getUserInfo(String uid){
-        return userInfoDao.selectPasswordByUid(uid);
+        return userInfoDao.selectUserInfoByLoginName(uid);
     }
 }
