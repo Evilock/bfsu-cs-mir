@@ -9,6 +9,7 @@ import javax.servlet.MultipartConfigElement;
 
 /**
  * 设置文件上传大小
+ * @author fangshaozu
  */
 @Configuration
 public class FileSizeConfig {
@@ -17,9 +18,9 @@ public class FileSizeConfig {
     public MultipartConfigElement multipartConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
         //单个文件最大
-        factory.setMaxFileSize(DataSize.ofMegabytes(80)); //MB
-        //factory.setMaxFileSize(DataSize.ofKilobytes(80)); //KB
-        //factory.setMaxFileSize(DataSize.ofGigabytes(80)); //Gb
+        factory.setMaxFileSize(DataSize.ofMegabytes(80));
+        //factory.setMaxFileSize(DataSize.ofKilobytes(80));
+        //factory.setMaxFileSize(DataSize.ofGigabytes(80));
 
         /// 设置总上传数据总大小
         factory.setMaxRequestSize(DataSize.ofMegabytes(100));

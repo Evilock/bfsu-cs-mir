@@ -1,12 +1,11 @@
 package com.shiye.mir.entity.vo;
 
-import com.shiye.mir.enums.EnumResponseCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 @Data
 @NoArgsConstructor

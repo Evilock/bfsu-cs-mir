@@ -9,8 +9,10 @@ import lombok.Getter;
 @Getter
 public enum EnumSucceedStatus {
 
+    /** 成功 */
     SUCCEED(1, "传输成功"),
 
+    /** REDIS上传成功 */
     REDIS_OK(2,"Redis上传成功");
 
     private Integer code;

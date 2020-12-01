@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 /**
- * 用户信息获取服务
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 @Service
 public class UserInfoServiceImpl implements UserInfoService {

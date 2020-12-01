@@ -6,6 +6,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
+/**
+ * 登录拦截器
+ * @author fangshaozu_sx
+ */
 @Configuration
 public class LoginConfig implements WebMvcConfigurer {
     @Override

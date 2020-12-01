@@ -20,7 +20,7 @@ public interface UserInfoDao {
     UserInfo selectUserInfoByLoginName(@Param("userId") String userId);
 
     /**
-     * 用户注册信息
+     * 用户注册
      */
     int insert(UserInfo user);
 }

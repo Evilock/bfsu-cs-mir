@@ -6,12 +6,14 @@ import java.math.BigDecimal;
 
 /**
  * 余额实体类
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 @Data
 public class DepositEntity {
 
+    /** 用户ID */
     private Integer id;
 
+    /** 余额 */
     private BigDecimal deposit;
 }

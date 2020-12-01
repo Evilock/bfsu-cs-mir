@@ -2,6 +2,9 @@ package com.shiye.mir.entity.vo;
 
 import lombok.Data;
 
+/**
+ * @author fangshaozu
+ */
 @Data
 public class UserVo {
 

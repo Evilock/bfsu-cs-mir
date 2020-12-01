@@ -49,7 +49,7 @@ public class MultipartFileToFileUtils {
      * 删除本地临时文件
      * @param file
      */
-    public static void delteTempFile(File file) {
+    public static void deleteTempFile(File file) {
         if (file != null) {
             File del = new File(file.toURI());
             del.delete();

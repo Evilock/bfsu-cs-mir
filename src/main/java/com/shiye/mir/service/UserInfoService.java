@@ -2,6 +2,10 @@ package com.shiye.mir.service;
 
 import com.shiye.mir.entity.dto.UserInfo;
 
+/**
+ * 用户信息获取接口
+ * @author fangshaozu
+ */
 public interface UserInfoService {
     /**
      * 密码验证
