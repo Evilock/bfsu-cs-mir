@@ -1,6 +1,9 @@
 package com.shiye.mir.service;
 
+import com.shiye.mir.entity.dto.DepositEntity;
 import com.shiye.mir.entity.dto.UserInfo;
+
+import java.math.BigDecimal;
 
 /**
  * 用户信息获取接口
@@ -16,4 +19,9 @@ public interface UserInfoService {
      * 获取用户全部信息
      */
     UserInfo getUserInfo(String uid);
+
+    /**
+     * 获取用户余额
+     */
+    DepositEntity getDeposit(Integer uid);
 }

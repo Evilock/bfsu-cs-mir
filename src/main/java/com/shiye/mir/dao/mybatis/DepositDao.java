@@ -1,5 +1,6 @@
 package com.shiye.mir.dao.mybatis;
 
+import com.shiye.mir.entity.dto.DepositEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,7 @@ public interface DepositDao {
      * @param id 用户id
      * @return 余额
      */
-    BigDecimal selectDepositDao(@Param("id") Integer id);
+    DepositEntity selectDepositDao(@Param("id") Integer id);
 
 
     /**

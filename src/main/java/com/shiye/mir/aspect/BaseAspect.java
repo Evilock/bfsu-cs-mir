@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * 切入点基类
  * @author fangshaozu
  */
-public class BaseAspect {
+public class  BaseAspect {
     /**
      * 切入点 - API接口调用
      */

@@ -1,6 +1,7 @@
 package com.shiye.mir.controller;
 
 import com.shiye.mir.annotation.AuthorityCheck;
+import com.shiye.mir.entity.dto.DepositEntity;
 import com.shiye.mir.entity.dto.UserInfo;
 import com.shiye.mir.service.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/pages",produces = "application/json;charset=UTF-8")
+@RequestMapping(produces = "application/json;charset=UTF-8")
 public class AdminController {
 
     @Resource
@@ -28,8 +29,21 @@ public class AdminController {
      * 首页
      */
     @ResponseBody
-    @RequestMapping("/index")
-    public ModelAndView index(){
+    @RequestMapping("/")
+    public ModelAndView home(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home.html");
+        return mv;
+    }
+
+    /**
+     * 首页
+     */
+    @ResponseBody
+    @RequestMapping("/pages/index")
+    @AuthorityCheck
+    public ModelAndView index(HttpServletRequest request){
+        log.info("Index page, uid:{}",request.getSession().getAttribute("userInfo"));
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index.html");
         return mv;
@@ -39,12 +53,15 @@ public class AdminController {
      * 个人中心
      */
     @AuthorityCheck
-    @RequestMapping("/self")
+    @RequestMapping("/pages/self")
     public ModelAndView self(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         Object userInfo = request.getSession().getAttribute("userInfo");
         UserInfo uinfo = userInfoService.getUserInfo(userInfo.toString());
+        DepositEntity deposit = userInfoService.getDeposit(uinfo.getId());
         mv.addObject("uinfo",uinfo);
+        //TODO 用户信息变化后session同步更新
+        mv.addObject("deposit",deposit.getDeposit());
         mv.setViewName("self.html");
         return mv;
     }

@@ -2,6 +2,7 @@ package com.shiye.mir.controller;
 
 import com.shiye.mir.annotation.AuthorityCheck;
 import com.shiye.mir.common.Constants;
+import com.shiye.mir.entity.dto.UserInfo;
 import com.shiye.mir.enums.EnumErrorStatus;
 import com.shiye.mir.enums.EnumSucceedStatus;
 import com.shiye.mir.service.DealService;
@@ -11,13 +12,17 @@ import com.shiye.mir.service.UploadFileService;
 import com.shiye.mir.utils.CheckAuthorityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.text.DefaultEditorKit;
 import java.io.*;
 import java.math.BigDecimal;
@@ -29,7 +34,7 @@ import java.math.BigDecimal;
  */
 @Slf4j
 @Controller
-@RequestMapping(produces = "application/json;charset=UTF-8")
+@RequestMapping(value = "/pages",produces = "application/json;charset=UTF-8")
 public class MusicSeparateController {
 
     @Resource
@@ -48,10 +53,11 @@ public class MusicSeparateController {
      * step1: 上传将要被分轨的音频文件，存入缓存
      * @param file 上传的音频文件
      */
-    @AuthorityCheck
-    @PostMapping("/getMusicFile")
     @ResponseBody
-    public String getMusicFile(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/getMusicFile")
+    public String getMusicFile(HttpServletRequest request,
+                               @RequestParam("file") MultipartFile file) {
+        log.info("File uploaded, uid:{}",request.getSession().getAttribute("userInfo"));
         return uploadFileService.uploadMusic(file);
     }
 
@@ -59,21 +65,19 @@ public class MusicSeparateController {
      * step2: 点击确定后，调用缓存中的音频文件并调用分轨方法，再次存入缓存
      * 若余额不足则提示充值，自动跳转到充值页面
      */
-    @AuthorityCheck
     @RequestMapping(value = "/separate")
-    public String getSeparateFile(@RequestParam(name = "userId", required = false) Integer userId,
+    public String getSeparateFile(HttpServletRequest request,
                                   @RequestParam(name = "getBeat", required = false) boolean getBeat,
-                                  @RequestParam(name = "getVocal", required = false) boolean getVocal,
-                                  HttpServletRequest request){
+                                  @RequestParam(name = "getVocal", required = false) boolean getVocal){
 
         //两个都不选则提示
         if (!getBeat && !getVocal) {return EnumErrorStatus.AT_LEAST_ONE.getName();}
-
         BigDecimal cost = BigDecimal.ZERO;
         if (getBeat){ cost = cost.add(Constants.BEAT_COST); }
         if (getVocal){ cost = cost.add(Constants.VOCAL_COST); }
 
         //余额足够的话扣钱并且下载
+        Integer userId = (Integer) request.getSession().getAttribute("userInfo");
         if (CheckAuthorityUtils.checkDeposit(cost, userId)){
             dealService.depositDecrease(userId,cost);
             getSeparatedService.doSeparate(userId,getBeat,getVocal);
@@ -85,9 +89,11 @@ public class MusicSeparateController {
     /**
      * step3: 下载分轨输出的结果
      */
-    @AuthorityCheck
     @GetMapping(value = "/downloadTracks")
-    public void downloadTracks(HttpServletResponse response) {
+    public String downloadTracks(HttpServletRequest request,
+                               HttpServletResponse response) {
+
+        log.info("File downloaded, uid:{}",request.getSession().getAttribute("userInfo"));
         String fileName = "17级附加分.png";
         response.setHeader("content-type", "application/octet-stream");
         response.setContentType("application/octet-stream");
@@ -119,6 +125,6 @@ public class MusicSeparateController {
                 }
             }
         }
-        System.out.println("success");
+        return "OK";
     }
 }

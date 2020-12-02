@@ -1,6 +1,7 @@
 package com.shiye.mir.service.impl;
 
 import com.shiye.mir.dao.mybatis.DepositDao;
+import com.shiye.mir.entity.dto.DepositEntity;
 import com.shiye.mir.service.DealService;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class DealServiceImpl implements DealService {
 
     @Override
     public void depositDecrease(Integer uid, BigDecimal cost) {
-        BigDecimal oldValue = depositDao.selectDepositDao(uid);
-        depositDao.depositUpdate(uid,oldValue.subtract(cost));
+        DepositEntity oldValue = depositDao.selectDepositDao(uid);
+        depositDao.depositUpdate(uid,oldValue.getDeposit().subtract(cost));
     }
 }
