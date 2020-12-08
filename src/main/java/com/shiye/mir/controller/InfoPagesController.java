@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/pages",produces = "application/json;charset=UTF-8")
+@RequestMapping(produces = "application/json;charset=UTF-8")
 public class InfoPagesController {
 
     /**

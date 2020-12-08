@@ -5,7 +5,7 @@ function getUserData()
 {
     var Option =
         {
-            url: "./index",
+            url: "/index",
             type: "post",
             dataType:"html",
             success: function (data) {
@@ -16,8 +16,8 @@ function getUserData()
                         '<li><text style="color: white" th:utext="${uinfo.getNickName()}"></text></li></ul>';
                     $("#melo").html(content2);
                 } else {
-                    var content = '<ul><li><a href="/pages/login">登录</a></li>'+
-                        '<li><a href="/pages/register">注册</a></li></ul>';
+                    var content = '<ul><li><a href="/login">登录</a></li>'+
+                        '<li><a href="/register">注册</a></li></ul>';
                     $("#melo").html(content);
                 }
             },

@@ -11,11 +11,7 @@ import java.io.*;
 @Slf4j
 @Service
 public class DownloadFileServiceImpl implements DownloadFileService {
-    /*
-    @Autowired
-    private RedisDao redisDao;
 
-    */
     @Override
     public OutputStream downLoadFile( Long uid, HttpServletResponse response){
         return null;

@@ -1,8 +1,6 @@
 package com.shiye.mir.controller;
 
-import com.shiye.mir.annotation.AuthorityCheck;
 import com.shiye.mir.common.Constants;
-import com.shiye.mir.entity.dto.UserInfo;
 import com.shiye.mir.enums.EnumErrorStatus;
 import com.shiye.mir.enums.EnumSucceedStatus;
 import com.shiye.mir.service.DealService;
@@ -11,19 +9,13 @@ import com.shiye.mir.service.GetSeparatedService;
 import com.shiye.mir.service.UploadFileService;
 import com.shiye.mir.utils.CheckAuthorityUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.text.DefaultEditorKit;
 import java.io.*;
 import java.math.BigDecimal;
 
@@ -34,7 +26,7 @@ import java.math.BigDecimal;
  */
 @Slf4j
 @Controller
-@RequestMapping(value = "/pages",produces = "application/json;charset=UTF-8")
+@RequestMapping(produces = "application/json;charset=UTF-8")
 public class MusicSeparateController {
 
     @Resource

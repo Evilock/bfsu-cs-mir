@@ -49,7 +49,7 @@ public class AdminController {
      * 首页
      */
     @ResponseBody
-    @RequestMapping("/pages/index")
+    @RequestMapping("/index")
     @AuthorityCheck
     public ModelAndView index(HttpServletRequest request){
         log.info("Index page, uid:{}",request.getSession().getAttribute("userInfo"));
@@ -62,7 +62,7 @@ public class AdminController {
      * 个人中心
      */
     @AuthorityCheck
-    @RequestMapping("/pages/self")
+    @RequestMapping("/self")
     public ModelAndView self(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         Object userInfo = request.getSession().getAttribute("userInfo");
