@@ -42,13 +42,10 @@ public class AuthorityCheckAspect extends BaseAspect {
         if (method != null) {
             needAuthorityCheck = method.isAnnotationPresent(AuthorityCheck.class);
         }
-        log.info("needAuthorityCheck:{}",needAuthorityCheck);
         //2.有则该接口需要判断是否已登录；若未登录则进入登录页
         if (needAuthorityCheck) {
             UserInfo userInfo = userInfoService.getUserInfo((String) request.getSession().getAttribute("userInfo"));
-            log.info("UserInfo:{}",userInfo);
             if (userInfo == null) {
-                log.info("redirect To: {}", appServerHostUrl + "/login");
                 ModelAndView mv = new ModelAndView();
                 mv.setViewName("redirect:" + appServerHostUrl + "/login");
                 return mv;

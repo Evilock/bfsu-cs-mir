@@ -18,7 +18,6 @@ public class InfoPagesController {
      */
     @RequestMapping("/team")
     public String team() {
-        log.info("Team page opened!");
         return "team.html";
     }
 
@@ -27,7 +26,6 @@ public class InfoPagesController {
      */
     @RequestMapping("/intro")
     public String intro() {
-        log.info("Introduction page opened!");
         return "intro.html";
     }
 
@@ -36,7 +34,6 @@ public class InfoPagesController {
      */
     @RequestMapping("/help")
     public String help() {
-        log.info("HELP page opened!");
         return "help.html";
     }
 }

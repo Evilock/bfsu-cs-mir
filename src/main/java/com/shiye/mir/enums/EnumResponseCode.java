@@ -11,18 +11,17 @@ import lombok.Getter;
 @Getter
 public enum EnumResponseCode implements IEnum<String>{
     /** 成功 */
-    SUCCESS("A00000", "成功"),
-    /** 无数据 */
-    NO_DATA("A00204","无数据"),
-    /** 操作失败 */
-    ERROR("E00400","操作失败"),
-    /** 系统错误 */
-    SYSTEM_ERROR("E00400","系统错误"),
-    /** 参数错误 */
-    INVALID_PARAM("E00400", "参数错误"),
-    /** 签名错误 */
-    INVALID_SIGN("E00401", "签名错误");
-
+    SUCCESS("A00000", "登录成功！"),
+    /** 错误验证码 */
+    WRONG_VERIFY("E00204","请输入验证码！"),
+    /** 无验证码 */
+    MISS_VERIFY("E00401","验证码错误！"),
+    /** 用户名密码错误 */
+    WRONG_INFO("E00400","用户名密码错误"),
+    /** 注销成功 */
+    LOGOUT_OK("A00001","注销成功"),
+    /** 注销失败 */
+    LOGOUT_FAILED("F00002","注销失败");
 
     private String code;
 

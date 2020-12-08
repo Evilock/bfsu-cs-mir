@@ -2,6 +2,7 @@ package com.shiye.mir.controller;
 
 import com.shiye.mir.entity.VerifyCode;
 import com.shiye.mir.entity.vo.Response;
+import com.shiye.mir.enums.EnumResponseCode;
 import com.shiye.mir.service.IVerifyCodeGen;
 import com.shiye.mir.service.UserInfoService;
 import com.shiye.mir.service.impl.SimpleCharVerifyCodeGenImpl;
@@ -48,20 +49,18 @@ public class LoginController {
         Response response = new Response();
         response.setId(CommonUtils.getUUID());
         if(verifyCode == null){
-            response.setBody("请输入验证码");
-            return response;
-        }
-        if(!verifyCode.equals(request.getSession().getAttribute("VerifyCode").toString())){
-            response.setBody("验证码错误");
-            return response;
-        }
-        if(loginCheckService.checkPassword(userid,password)){
-            response.setBody("userid:"+userid+";password:"+password);
-            request.getSession().setAttribute("userInfo", userid);
-            log.info("LOGIN succeed, uid is:{}",userid);
+            response.setBody(EnumResponseCode.MISS_VERIFY.getId());
+        }else if(!verifyCode.equals(request.getSession().getAttribute("VerifyCode").toString())){
+            response.setBody(EnumResponseCode.WRONG_VERIFY.getId());
         }else{
-            response.setBody("wrong userid or password!");
-            log.info("LOGIN failed, uid is:{}",userid);
+            if(loginCheckService.checkPassword(userid,password)){
+                response.setBody(EnumResponseCode.SUCCESS.getId());
+                request.getSession().setAttribute("userInfo", userid);
+                log.info("LOGIN succeed, uid is:{}",userid);
+            }else{
+                response.setBody(EnumResponseCode.WRONG_INFO.getId());
+                log.info("LOGIN failed, uid is:{}",userid);
+            }
         }
         return response;
     }
@@ -69,18 +68,21 @@ public class LoginController {
     /**
      * 登出操作
      */
-    @GetMapping(value = "/logout")
-    public String loginOut(HttpServletRequest request) {
+    @ResponseBody
+    @RequestMapping(value = "/logout")
+    public Response loginOut(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        log.info("Log out, session is:{}",session.getAttribute("userInfo"));
-        // 将用户信息从session中删除
         session.removeAttribute("userInfo");
         Object userInfo = session.getAttribute("userInfo");
-        String info = userInfo==null?"Logout Done!":"Logout Failed!";
-        log.info(info);
-        return info;
+        String info = userInfo == null?EnumResponseCode.LOGOUT_OK.getCode():EnumResponseCode.LOGOUT_FAILED.getCode();
+        Response response = new Response();
+        response.setBody(info);
+        return response;
     }
 
+    /**
+     * 获取验证码
+     */
     @GetMapping("/verifyCode")
     public void verifyCode(HttpServletRequest request, HttpServletResponse response) {
         IVerifyCodeGen iVerifyCodeGen = new SimpleCharVerifyCodeGenImpl();

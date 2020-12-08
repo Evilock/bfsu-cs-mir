@@ -1,3 +1,38 @@
+
+.fl{float: left;}
+.fr{float: right;}
+
+li{list-style-type :none;}
+
+.whole{
+    background-color:lightseagreen;
+    margin: 0 auto;
+
+}
+.blacksuit{
+    height: 50px;
+    background-color: black;
+}
+.header{
+    width: 1400px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.header .nav ul li{
+    float:left;/*让li元素左浮动*/
+}
+.header .nav ul li a{
+    width:80px;/*设置元素宽为80px*/
+    color:#FFF;/*文字颜色是白色*/
+    font-size:16px;/*用12号字*/
+    display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
+    text-align:center;/*让文本居中*/
+    text-decoration:none; /*去掉下划线*/
+    position: relative;
+    top: 20%;
+}
+
 .selfCen{
     font-size: 60px;
     font-weight: bold;
@@ -9,6 +44,9 @@
 .bp{
     height: 41px;
 }
+
+
+/* coco */
 .coco{
     width:800px;
     height:600px;
@@ -69,9 +107,6 @@
     height:40px;
     color: #5e53e4;
 }
-.coco .account_mm{
-
-}
 
 .coco .account_mm .account_mm_charge{
     margin: 0 auto;
@@ -80,3 +115,28 @@
 
 }
 
+.coco .logout{
+    margin: 0 auto;
+    text-align: center;
+    position:relative;
+    top:20px;
+}
+
+
+/* footer */
+.footer{
+    height:200px;
+}
+.footer .packer{
+    height:30px;
+    background-color: black;
+}
+.footer .packer .container{
+    width:800px;
+    height: 30px;
+    margin: 0 auto;
+    color: white;
+}
+.footer .packer .container .footer_down{
+    font-style: italic;
+}

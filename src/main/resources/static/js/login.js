@@ -8,11 +8,19 @@ $(document).ready(function(){
                     + $("input[name=verifyCode]").val(),
                     type : "POST",
                     success : function(data) {
-                        var html = "<tr><td>"+JSON.stringify(data)+"</td><tr>";
-                        $("#responseFuck").append(html);
+                        if(data.body === "A00000"){
+                            alert("登陆成功！");
+                            window.location.href="/";
+                        }else if(data.body === "E00401"){
+                            alert("请输入验证码！");
+                        }else if(data.body === "E00204"){
+                            alert("验证码错误!");
+                        }else if(data.body === "E00400"){
+                            alert("用户名密码错误!");
+                        }
                     },
                     error:function(){
-                        alert("error");
+                        alert("请正确输入！");
                     }
                 });
             });
