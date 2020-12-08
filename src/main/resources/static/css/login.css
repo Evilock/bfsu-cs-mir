@@ -1,0 +1,106 @@
+
+.fl{float: left;}
+.fr{float: right;}
+
+li{list-style-type :none;}
+
+.whole{
+    background-color:lightseagreen;
+    margin: 0 auto;
+
+}
+.blacksuit{
+    height: 50px;
+    background-color: black;
+}
+.header{
+    width: 1400px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.header .nav ul li{
+    float:left;/*让li元素左浮动*/
+}
+.header .nav ul li a{
+    width:80px;/*设置元素宽为80px*/
+    color:#FFF;/*文字颜色是白色*/
+    font-size:16px;/*用12号字*/
+    display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
+    text-align:center;/*让文本居中*/
+    text-decoration:none; /*去掉下划线*/
+    position: relative;
+    top: 20%;
+}
+
+
+.middle{
+    width:600px;
+    height:650px;
+    margin: 0 auto;
+    text-align:center;
+}
+
+.middle .middle1{
+    width:300px;
+    height: 50px;
+    margin: 0 auto;
+    text-align:center;
+
+    font-size:38px;
+    font-weight:bold;
+}
+
+.middle .middle2{
+    width:320px;
+    margin: 0 auto;
+    text-align:center;
+}
+
+.middle .middle2 .kuang{
+    width :340px;
+    height: 35px;
+}
+.middle .middle2 .kuang .labeling{
+    font-size: 20px;
+    font-weight: bold;
+    width: 70px;
+}
+
+.middle .middle2 .kuang .inputBox{
+    font-size: 20px;
+    width: 220px;
+}
+
+/* footer */
+.footer{
+    height:200px;
+}
+.footer .packer{
+    height:30px;
+    background-color: black;
+}
+.footer .packer .container{
+    width:800px;
+    height: 30px;
+    margin: 0 auto;
+    color: white;
+}
+.footer .packer .container .footer_down{
+    font-style: italic;
+}
+
+/*else*/
+.stroke{
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    letter-spacing: 0.04em;
+}
+
+.vintage {
+    background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+    text-shadow: 5px -5px black, 4px -4px white;
+    font-weight: bold;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}

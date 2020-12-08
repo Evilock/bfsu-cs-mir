@@ -66,7 +66,7 @@ li{list-style-type :none;}
 .middle .middle2 .pickbox{
     width: 750px;
     height: 140px;
-    background-color: azure;
+    background-color: rgba(255,0,0,0.1);
     margin: 0 auto;
     position: relative;
     top: 10%;
@@ -76,17 +76,22 @@ li{list-style-type :none;}
     width: 250px;
     height: 140px;
     float: left;
+    margin: 0 auto;
+    text-align:center;
 }
 .middle .middle2 .pickbox .transfer{
     width: 250px;
     height: 140px;
     float: left;
-
+    margin: 0 auto;
+    text-align:center;
 }
 .middle .middle2 .pickbox .download{
     width: 250px;
     height: 140px;
     float: left;
+    margin: 0 auto;
+    text-align:center;
 }
 .middle .middle3 .sentence{
     position: relative;
@@ -114,4 +119,32 @@ li{list-style-type :none;}
 }
 .footer .packer .container .footer_down{
     font-style: italic;
+}
+
+/* input */
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
 }

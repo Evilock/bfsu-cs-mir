@@ -30,11 +30,20 @@ public class AdminController {
      */
     @ResponseBody
     @RequestMapping("/")
+    public ModelAndView welcome(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home.html");
+        return mv;
+    }
+
+    @ResponseBody
+    @RequestMapping("/home")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home.html");
         return mv;
     }
+
 
     /**
      * 首页

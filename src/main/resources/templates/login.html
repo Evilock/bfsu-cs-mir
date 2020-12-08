@@ -6,67 +6,84 @@
         <link rel="stylesheet" href="/static/css/buttons.css">
         <script src="/static/js/jquery.js"></script>
         <script type="text/javascript" src="/static/js/login.js"></script>
-        <link rel="stylesheet" href="/static/css/index.css" >
+        <link rel="stylesheet" href="/static/css/login.css" >
     </head>
 
     <body style="overflow:scroll;overflow-y:hidden">
-        <div class="whole">
-            <!--抬头黑框-->
-            <div class="blacksuit">
-                <div class="header">
-                    <div class="nav fl">
-                        <ul>
-                            <!--li><a href="/pages/login">登录</a></li>
-                            <li><a href="/pages/register">注册</a></li-->
-                        </ul>
-                    </div>
-                    <div class="nav fr">
-                        <ul>
-                            <li><a href="/pages/index">首页</a></li>
-                            <li><a href="/pages/intro">产品介绍</a></li>
-                            <li><a href="/pages/team">团队</a></li>
-                            <li><a href="/pages/help">帮助</a></li>
-                            <li><a href="/pages/self">个人中心</a></li>
-                        </ul>
-                    </div>
+    <div class="whole">
+        <!--抬头黑框-->
+        <div class="blacksuit">
+            <div class="header">
+                <div class="nav fl">
+                    <ul>
+                        <!--li><a href="/pages/login">登录</a></li>
+                        <li><a href="/pages/register">注册</a></li-->
+                    </ul>
+                </div>
+                <div class="nav fr">
+                    <ul>
+                        <li><a href="/home">首页</a></li>
+                        <li><a href="/pages/intro">产品介绍</a></li>
+                        <li><a href="/pages/team">团队</a></li>
+                        <li><a href="/pages/help">帮助</a></li>
+                        <li><a href="/pages/self">个人中心</a></li>
+                    </ul>
                 </div>
             </div>
-            <!--主要部分-->
-            <div class="middle">
-                <div class = "btnBox">
-                    <div>
-                        <label>账号</label>
-                        <input name = "userid" type = "text" placeholder="输入账号" class = "fl inputBox1">
-                    </div>
-                    <div class = "fl">
-                        <label>密码</label>
-                        <input name = "password" type = "text" placeholder="输入密码" class = "inputBox2">
-                    </div>
-                    <div class = "fl">
-                        <a href="" style = "margin-right: 15px;">更换验证码</a>
-                    </div>
-                    <div>
-                        <input id = "submitTo" type = "submit" class = "button button-3d button-pill">
-                    </div>
-                    <div id = "responseFuck">
-                    </div>
+        </div>
 
+
+
+        <!--主要部分-->
+        <div class="middle">
+            <div style ="height:50px"></div>
+            <div class = "middle1 vintage">
+                LOGIN
+            </div>
+            <div style ="height:20px"></div>
+            <div class = "middle2">
+                <div class = "kuang">
+                    <label class ="labeling fl">账号</label>
+                    <input class = "inputBox fl" name = "userid" type = "text" placeholder="输入账号">
+                </div>
+                <div class = "kuang">
+                    <label class ="labeling fl">密码</label>
+                    <input class = "inputBox fl" name = "password" type = "password" placeholder="输入密码">
+                </div>
+                <div class = "kuang">
+                    <label class ="labeling fl">验证码</label>
+                    <input class = "inputBox fl" name = "password" type = "text" placeholder="输入验证码">
+                </div>
+                <div class = "kuang">
+                    <label class ="labeling fl" style="color:rgba(220,38,38,0)">.</label>
+                    <div class = "fl">aaaa</div>
+                    <a href="">刷新</a>
+                </div>
+                <div>
+                    <input id = "submitTo" type = "submit" class = "button button-3d button-pill" style="font-weight:bold" value="登录">
+                </div>
+                <div id = "responseFuck">
                 </div>
             </div>
-            <!--脚标-->
-            <div class="footer">
-                <div class="packer">
-                    <div class = "container">
-                        <div class = "footer_upper fl">
-                            <strong>北京外国语大学信息科学技术学院大创团队研发</strong>
-                        </div>
-                        <div class = "footer_down fr">
-                            <strong>from 2020 to 2020</strong>
-                        </div>
+        </div>
+
+
+
+
+        <!--脚标-->
+        <div class="footer">
+            <div class="packer">
+                <div class = "container">
+                    <div class = "footer_upper fl">
+                        <strong>北京外国语大学信息科学技术学院大创团队研发</strong>
+                    </div>
+                    <div class = "footer_down fr">
+                        <strong>from 2020 to 2020</strong>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </body>
 

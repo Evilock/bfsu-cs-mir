@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>INSTRUCTIONS</title>
-    <link rel="stylesheet" href="/static/css/buttons.css">
-    <link rel="stylesheet" href="/static/css/index.css" >
     <link rel="stylesheet" href="/static/css/intro.css" >
 </head>
 <body>
@@ -15,17 +12,14 @@
                 <div class="nav fl">
                     <ul>
                         <li>
-                            <text style="color: white">Hello~ Mr.</text>
-                        </li>
-                        <li>
-                            <text style="color: white" th:utext="${uinfo.getNickName()}"></text>
+                            <text style="color: white">Hello~ </text>
                         </li>
                     </ul>
                 </div>
                 <div class="nav fr">
                     <ul>
-                        <li><a href="/pages/index">首页</a></li>
-                        <li><a href="/pages/intro">产品介绍</a></li>
+                        <li><a href="/home">首页</a></li>
+                        <li><a href="#">产品介绍</a></li>
                         <li><a href="/pages/team">团队</a></li>
                         <li><a href="/pages/help">帮助</a></li>
                         <li><a href="/pages/self">个人中心</a></li>
@@ -35,9 +29,15 @@
         </div>
         <div class="bp"></div>
         <div class = "selfCen">
-                团队介绍
-            </div>
-        <div class="bp"></div>
+                项目介绍
+        </div>
+        <!--主要部分-->
+        <div>
+
+        </div>
+        <div class = "footer">
+            Copyright © 2020 BFSU All Right Reserved
+        </div>
 
     </div>
 </body>

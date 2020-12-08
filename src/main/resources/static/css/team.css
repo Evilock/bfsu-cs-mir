@@ -1,0 +1,166 @@
+
+.fl{float: left;}
+.fr{float: right;}
+
+li{list-style-type :none;}
+
+.whole{
+    background-color:lightseagreen;
+    margin: 0 auto;
+
+}
+.blacksuit{
+    height: 50px;
+    background-color: black;
+}
+.header{
+    width: 1400px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.header .nav ul li{
+    float:left;/*让li元素左浮动*/
+}
+.header .nav ul li a{
+    width:80px;/*设置元素宽为80px*/
+    color:#FFF;/*文字颜色是白色*/
+    font-size:16px;/*用12号字*/
+    display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
+    text-align:center;/*让文本居中*/
+    text-decoration:none; /*去掉下划线*/
+    position: relative;
+    top: 20%;
+}
+
+
+/*middle*/
+.middle{
+    height:1000px;
+    width:1000px;
+    margin: 0 auto;
+    background-color:rgba(255,0,0,0.1);
+
+}
+
+.middle .school{
+    height:200px;
+    width:1000px;
+}
+
+.middle .school .school_title{
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.middle .school .photo{
+    margin-left:15px;
+    margin-top:15px;
+    height:220px;
+    width:300px;
+}
+
+.middle .school .photo .photo_inside{
+    padding: 10px;
+    width : 270px;
+    border-radius:20%;
+
+}
+
+.middle .school .brief{
+    height:100px;
+    width:650px;
+
+    display: flex;
+    align-items: center;
+
+    font-size:18px;
+    color: white;
+}
+
+.middle .cutLine{
+    height:20px;
+    width:90%;
+    border-top:1px solid #ccc;
+    float:left;
+    margin-top:15px;
+    position:relative;
+    left:5%;
+}
+
+
+/*member*/
+.middle .member{
+    height:200px;
+    width:1000px;
+}
+
+.middle .member .member_title{
+    font-size:30px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.middle .member .member_list{
+    text-align:center;
+    margin-left:6%;
+}
+
+.middle .member .member_list .member_block{
+    width:200px;
+    height:280px;
+    border:10px;
+    /*background-color:rgba(255,0,0,0.0.8);*/
+    border-top:10px solid rgba(200,200,200,0.5);
+    border-right:10px solid rgba(200,200,200,0.5);
+    border-bottom: 10px solid rgba(200,200,200,0.5);
+    border-left:10px solid rgba(200,200,200,0.5);
+}
+
+.middle .member .member_list .member_block .member_pic{
+    margin-top:10%;
+    margin-left:10%;
+    width:80%;
+    height:55%;
+}
+.middle .member .member_list .member_block .member_pic .pic_inside{
+    height:80%;
+    width:80%;
+    margin-top:10%;
+    margin-left:3%;
+    border-radius:40%;
+}
+
+.middle .member .member_list .member_block .member_name{
+    margin-left:10%;
+    width:80%;
+    height:10%;
+
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+
+}
+
+.middle .member .member_list .member_block .member_intro{
+    margin-left:10%;
+    width:80%;
+    height:20%;
+
+    font-size:12px;
+
+}
+
+.selfCen{
+    font-size: 60px;
+    font-weight: bold;
+    height:100px;
+    text-align: center;
+    margin: 0 auto;
+}
+.footer{
+    height:20px;
+    text-align: center;
+    font-size:10px;
+}
