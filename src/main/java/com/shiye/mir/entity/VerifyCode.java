@@ -4,7 +4,8 @@ package com.shiye.mir.entity;
 import lombok.Data;
 
 /**
- * @author fangshaozu_sx
+ * 验证码实体类
+ * @author fangshaozu
  */
 @Data
 public class VerifyCode {

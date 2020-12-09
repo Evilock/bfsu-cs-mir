@@ -46,7 +46,7 @@ public class AdminController {
 
 
     /**
-     * 首页
+     * 主操作界面
      */
     @ResponseBody
     @RequestMapping("/index")

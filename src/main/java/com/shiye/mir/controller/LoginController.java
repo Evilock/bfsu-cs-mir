@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 用户登录代码
+ * 用户登录
  * @author fangshaozu
  */
 @Slf4j
@@ -38,14 +38,15 @@ public class LoginController {
     @RequestMapping("/register")
     public String register() { return "register.html"; }
 
+    /**
+     * 登录操作
+     */
     @ResponseBody
     @RequestMapping(value = "/check/{userid}/{password}/{verifyCode}", method = RequestMethod.POST)
     public Response checkLogin(@PathVariable("userid") String userid,
                                @PathVariable("password") String password,
                                @PathVariable("verifyCode") String verifyCode,
                                HttpServletRequest request){
-        log.info("inputs are:{},{},{}",userid,password,verifyCode);
-        log.info("code in Session:{}",request.getSession().getAttribute("VerifyCode"));
         Response response = new Response();
         response.setId(CommonUtils.getUUID());
         if(verifyCode == null){
