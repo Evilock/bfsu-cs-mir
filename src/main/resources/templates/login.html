@@ -7,11 +7,11 @@
         <script src="/static/js/jquery.js"></script>
         <script type="text/javascript" src="/static/js/login.js"></script>
         <link rel="stylesheet" href="/static/css/login.css" >
+        <link rel="stylesheet" href="/static/css/common.css" >
     </head>
 
-    <body style="overflow:scroll;overflow-y:hidden">
+    <body>
     <div class="whole">
-        <!--抬头黑框-->
         <div class="blacksuit">
             <div class="header">
                 <div class="nav fl">
@@ -52,15 +52,17 @@
                 </div>
                 <div class = "kuang">
                     <label class ="labeling fl">验证码</label>
-                    <input class = "inputBox fl" name = "verifyCode" type = "text" placeholder="输入验证码">
+                    <input class = "inputBox fl" name = "verifyCode" type = "text" placeholder="输入验证码" style="width:125px;">
+                    <img class = "fl"  onclick="javascript:getvCode()" id="verifyimg" style="margin-left: 15px;"/>
                 </div>
-                <div class = "kuang">
-                    <label class ="labeling fl" style="color:rgba(220,38,38,0)">.</label>
-                    <img onclick="javascript:getvCode()" id="verifyimg" style="margin-left: 5px;"/>
-                    <div></div>
-                </div>
-                <div>
-                    <input id = "submitTo" type = "submit" class = "button button-3d button-pill" style="font-weight:bold" value="登录">
+                <div class="anniu">
+                    <div class = "anniu_small fl">
+                        <input id = "regi"  onclick="location.href='/register'" type = "submit" class = "button button-3d button-pill register-botton" value="注册">
+                    </div>
+                    <div class = "anniu_small fr">
+                        <input id = "submitTo"  type = "submit" class = "button button-3d button-pill" style="font-weight:bold"  value="登录">
+                    </div>
+
                 </div>
             </div>
         </div>

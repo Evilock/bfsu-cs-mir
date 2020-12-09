@@ -1,46 +1,4 @@
 
-.fl{float: left;}
-.fr{float: right;}
-
-li{list-style-type :none;}
-
-.whole{
-    background-color:lightseagreen;
-    margin: 0 auto;
-
-}
-.blacksuit{
-    height: 50px;
-    background-color: black;
-}
-.header{
-    width: 1400px;
-    height: 50px;
-    margin: 0 auto;
-}
-
-.header .nav ul li{
-    float:left;/*让li元素左浮动*/
-}
-.header .nav ul li a{
-    width:80px;/*设置元素宽为80px*/
-    color:#FFF;/*文字颜色是白色*/
-    font-size:16px;/*用12号字*/
-    display:block;/*这个比较关键，因为a本身就是联级元素，本身不具有宽高，用这个把它变成块级元素，这样前面设置的宽和高就能起作用了*/
-    text-align:center;/*让文本居中*/
-    text-decoration:none; /*去掉下划线*/
-    position: relative;
-    top: 20%;
-}
-
-.selfCen{
-    font-size: 60px;
-    font-weight: bold;
-    height:100px;
-    text-align: center;
-    margin: 0 auto;
-}
-
 .footer{
     height:20px;
     text-align: center;
