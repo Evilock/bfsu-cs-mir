@@ -11,12 +11,12 @@
     <groupId>com.shiye</groupId>
     <artifactId>mir</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>mir</name>
     <description>Project for Dachuang</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
 
     <dependencies>
