@@ -1,6 +1,7 @@
 package com.shiye.mir.service.impl;
 
 import com.shiye.mir.enums.EnumEmailSendStatus;
+import com.shiye.mir.service.IVerifyCodeGen;
 import com.shiye.mir.service.MailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -81,5 +82,15 @@ public class MailServiceImpl implements MailService {
             log.error("sendAttachmentsEmail error", e);
         }
 
+    }
+
+    @Override
+    public EnumEmailSendStatus sendEmailVerifyCode(String to) {
+        IVerifyCodeGen verifyCodeGen = new SimpleCharVerifyCodeGenImpl();
+        String verifyCode = verifyCodeGen.emailVerifyCode(to);
+        StringBuilder content = new StringBuilder();
+        content.append("<h2>输入下方验证码完成验证（20分钟内有效~）</h2>").append("<h3>").append(verifyCode).append("</h3>");
+        String subject = "【Voicat】找回密码~";
+        return sendHtmlEmail(to,subject,content.toString());
     }
 }

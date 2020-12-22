@@ -32,7 +32,14 @@ public enum EnumResponseCode implements IEnum<String>{
     /** 邮箱错误 */
     EMAIL_FAILED("R00401","邮箱格式不正确"),
     /** 邮箱已被注册 */
-    EMAIL_EXIST("R00405","邮箱已被注册");
+    EMAIL_EXIST("R00405","邮箱已被注册"),
+
+
+    PASSWORD_DIF("P00400","两次输入不一致！"),
+    WRONG_VERIFY_2("P00401","验证码错误"),
+    INPUT_CHECK("P00402","请检查输入");
+
+
 
     private String code;
 

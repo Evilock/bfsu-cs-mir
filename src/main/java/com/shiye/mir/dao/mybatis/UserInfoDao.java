@@ -44,7 +44,16 @@ public interface UserInfoDao {
      * 打印邮件失败日志
      * @param userId userId
      * @param email 邮箱
+     * @param statement 场景
      * @return 被影响行数
      */
-    int emailFailedLog(String userId, String email);
+    int emailFailedLog(String userId, String email, String statement);
+
+    /**
+     * 改密码
+     * @param email 邮箱
+     * @param password 密码
+     * @return 影响的行数
+     */
+    int changePassword(String email,String password);
 }

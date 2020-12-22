@@ -1,30 +1,38 @@
 package com.shiye.mir.service.impl;
 
+import com.github.benmanes.caffeine.cache.LoadingCache;
+import com.shiye.mir.config.LocalCacheConfig;
 import com.shiye.mir.entity.VerifyCode;
 import com.shiye.mir.service.IVerifyCodeGen;
+import com.shiye.mir.utils.LocalMapCache;
 import com.shiye.mir.utils.RandomUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Map;
 import java.util.Random;
 
 /**
  * 验证码实现类
  * @author fangshaozu
  */
+@Slf4j
 public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
 
-    private static final Logger logger = LoggerFactory.getLogger(SimpleCharVerifyCodeGenImpl.class);
+    //@Resource(name = "stringLocalCache")
+    //public LoadingCache<String,String> loadingCache;
 
     private static final String[] FONT_TYPES = { "\u5b8b\u4f53", "\u65b0\u5b8b\u4f53", "\u9ed1\u4f53", "\u6977\u4f53", "\u96b6\u4e66" };
 
     private static final int VALICATE_CODE_LENGTH = 4;
+
+    private static final int VALICATE_CODE_LENGTH_FOR_EMAIL = 10;
 
     /**
      * 设置背景颜色及大小，干扰线
@@ -79,7 +87,7 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
             verifyCode.setCode(code);
             verifyCode.setImgBytes(baos.toByteArray());
         } catch (IOException e) {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
             verifyCode = null;
         }
         return verifyCode;
@@ -99,5 +107,13 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
             //设置x y 坐标
             g.drawString(String.valueOf(charArray[i]), 15 * i + 5, 19 + RandomUtils.nextInt(8));
         }
+    }
+
+    @Override
+    public String emailVerifyCode(String to){
+        String verifyCode = RandomUtils.randomString(VALICATE_CODE_LENGTH_FOR_EMAIL);
+        //TODO 换成loadingCache.put(to,verifyCode);
+        LocalMapCache.getEmailCache().put(to,verifyCode);
+        return verifyCode;
     }
 }

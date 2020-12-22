@@ -1,6 +1,7 @@
 package com.shiye.mir.service;
 
 import com.shiye.mir.entity.VerifyCode;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -22,4 +23,9 @@ public interface IVerifyCodeGen {
      *
      */
     VerifyCode generate(int width, int height) throws IOException;
+
+    /**
+     * 生成邮箱验证码
+     */
+    String emailVerifyCode(String to);
 }

@@ -46,4 +46,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfo getUserInfoByEmail(String email) {
         return userInfoDao.selectUserInfoByEmail(email);
     }
+
+    @Override
+    public int changePassword(String email, String password) {
+        return userInfoDao.changePassword(email,password);
+    }
 }

@@ -33,4 +33,11 @@ public interface MailService {
      * @param filePath 文件路径
      */
     void sendAttachmentsEmail(String to,String subject, String content, String filePath);
+
+    /**
+     * 发送改密码时的验证码
+     * @param to 对应用户
+     * @return 邮件发送状态
+     */
+    EnumEmailSendStatus sendEmailVerifyCode(String to);
 }

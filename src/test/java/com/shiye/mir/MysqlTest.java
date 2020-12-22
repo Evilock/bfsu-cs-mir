@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,9 @@ public class MysqlTest {
 
     @Resource
     private RegisterService registerService;
+
+    @Resource
+    private HttpServletRequest request;
 
     @Test
     public void testMybatis(){
@@ -54,8 +59,19 @@ public class MysqlTest {
 
     @Test
     public void emailFailedLog(){
-        int result = registerService.emailFailedLog("test","email@email.com");
+        int result = registerService.emailFailedLog("test","email@email.com","1");
         System.out.println(result);
+    }
+
+    @Test
+    public void a(){
+        HttpSession session = request.getSession();
+        System.out.println(session);
+        Object s = session.getAttribute("VerifyCode");
+        System.out.println(s);
+        String p =s.toString();
+        System.out.println(p);
+
     }
 
 }

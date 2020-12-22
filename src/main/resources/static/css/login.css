@@ -54,6 +54,10 @@
     background-color: #1B9AF7;
     color: white;
 }
+/* 登录注册按钮 */
+.middle .middle2 .wangji{
+    margin-top: 15px;
+}
 
 /* footer */
 .footer{

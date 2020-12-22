@@ -33,8 +33,9 @@ public interface RegisterService {
      * 打印邮件发送失败日志
      * @param userId 用户ID
      * @param email 邮件
+     * @param statement 场景
      * @return 返回值
      */
-    int emailFailedLog(String userId,String email);
+    int emailFailedLog(String userId, String email, String statement);
 
 }

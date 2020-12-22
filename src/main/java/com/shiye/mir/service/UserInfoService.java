@@ -29,4 +29,9 @@ public interface UserInfoService {
      * 根据邮箱查找
      */
     UserInfo getUserInfoByEmail(String uid);
+
+    /**
+     * 修改密码
+     */
+    int changePassword(String email, String newPassword);
 }

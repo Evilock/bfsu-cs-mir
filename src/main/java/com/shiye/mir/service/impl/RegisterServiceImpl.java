@@ -27,8 +27,6 @@ public class RegisterServiceImpl implements RegisterService {
         return userinfoDao.insert(user);
     }
 
-
-
     @Override
     public EnumEmailSendStatus sendVerifyMail(String to, String userId) {
         String subject = "【Voicat】注册验证码";
@@ -47,7 +45,7 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public int emailFailedLog(String userId, String email) {
-        return userinfoDao.emailFailedLog(userId,email);
+    public int emailFailedLog(String userId, String email,String statement) {
+        return userinfoDao.emailFailedLog(userId,email,statement);
     }
 }

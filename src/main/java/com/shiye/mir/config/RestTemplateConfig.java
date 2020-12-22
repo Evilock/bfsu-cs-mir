@@ -32,7 +32,6 @@ import java.util.List;
 
 /**
  * RestTemplate 配置类
- *
  * @author fangshaozu
  */
 @Configuration

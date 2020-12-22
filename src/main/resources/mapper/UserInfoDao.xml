@@ -32,14 +32,17 @@
         UPDATE userinfo SET status = 1 WHERE userId = #{userId}
     </update>
 
-
+    <!--修改密码-->
+    <update id="changePassword" parameterType="String">
+        UPDATE userinfo SET password = #{newPassword} WHERE email = #{email}
+    </update>
 
     <!--失败日志-->
     <insert id="emailFailedLog" parameterType="String">
         INSERT INTO email_failed_log(
-            `user_id`,`email`,`create_time`
+            `user_id`,`email`,`statement`,`create_time`
         ) VALUES (
-            #{userId},#{email},NOW()
+            #{userId},#{email},#{statement},NOW()
         )
     </insert>
 </mapper>
