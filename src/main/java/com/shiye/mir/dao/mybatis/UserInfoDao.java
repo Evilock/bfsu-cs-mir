@@ -21,6 +21,30 @@ public interface UserInfoDao {
 
     /**
      * 用户注册
+     * @param user 用户
+     * @return 被影响的行数
      */
     int insert(UserInfo user);
+
+    /**
+     * 激活
+     * @param userId 用户ID
+     * @return 被影响行数
+     */
+    int activate(String userId);
+
+    /**
+     * 根据邮箱获得用户
+     * @param email 邮箱
+     * @return 用户信息
+     */
+    UserInfo selectUserInfoByEmail(String email);
+
+    /**
+     * 打印邮件失败日志
+     * @param userId userId
+     * @param email 邮箱
+     * @return 被影响行数
+     */
+    int emailFailedLog(String userId, String email);
 }

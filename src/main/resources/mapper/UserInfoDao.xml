@@ -13,12 +13,33 @@
         select * from userinfo where userId = #{userId}
     </select>
 
+    <!--用户信息查询-->
+    <select id="selectUserInfoByEmail" resultType="com.shiye.mir.entity.dto.UserInfo">
+        select * from userinfo where email = #{email}
+    </select>
+
     <!--新增用户-->
     <insert id="insert" parameterType="UserInfo">
         INSERT INTO userinfo(
             `userId`,`password`,`email`,`nickName`,`create_time`,`update_time`
         ) VALUES (
             #{userId},#{password},#{email},#{nickName},NOW(),NOW()
+        )
+    </insert>
+
+    <!--激活用户-->
+    <update id="activate" parameterType="String">
+        UPDATE userinfo SET status = 1 WHERE userId = #{userId}
+    </update>
+
+
+
+    <!--失败日志-->
+    <insert id="emailFailedLog" parameterType="String">
+        INSERT INTO email_failed_log(
+            `user_id`,`email`,`create_time`
+        ) VALUES (
+            #{userId},#{email},NOW()
         )
     </insert>
 </mapper>

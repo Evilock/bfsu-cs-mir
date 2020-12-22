@@ -1,5 +1,6 @@
 package com.shiye.mir.service.impl;
 
+import com.shiye.mir.enums.EnumEmailSendStatus;
 import com.shiye.mir.service.MailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +11,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
@@ -40,7 +43,7 @@ public class MailServiceImpl implements MailService {
     }
 
     @Override
-    public void sendHtmlEmail(String to, String subject, String content) {
+    public EnumEmailSendStatus sendHtmlEmail(String to, String subject, String content) {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper messageHelper;
         try {
@@ -48,11 +51,14 @@ public class MailServiceImpl implements MailService {
             messageHelper.setFrom(from);
             messageHelper.setTo(to);
             message.setSubject(subject);
+            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse(from));
             messageHelper.setText(content, true);
             mailSender.send(message);
             log.info("Email Sent.");
-        } catch (MessagingException e) {
+            return EnumEmailSendStatus.EMAIL_SENT;
+        } catch (Exception e) {
             log.error("sendHtmlEmail error", e);
+            return EnumEmailSendStatus.EMAIL_FAILED;
         }
     }
 
@@ -60,6 +66,7 @@ public class MailServiceImpl implements MailService {
     public void sendAttachmentsEmail(String to, String subject, String content, String filePath) {
         MimeMessage message = mailSender.createMimeMessage();
         try {
+            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse(from));
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(from);
             helper.setTo(to);

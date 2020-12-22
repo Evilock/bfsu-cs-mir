@@ -39,6 +39,11 @@ li{list-style-type :none;}
     text-align: center;
     margin: 0 auto;
 }
+.selfCen .sss{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
 
 .hiddenBody{
     overflow:scroll;

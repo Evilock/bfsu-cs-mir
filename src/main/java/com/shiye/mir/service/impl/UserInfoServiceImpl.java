@@ -41,4 +41,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public DepositEntity getDeposit(Integer uid) {
         return depositDao.selectDepositDao(uid);
     }
+
+    @Override
+    public UserInfo getUserInfoByEmail(String email) {
+        return userInfoDao.selectUserInfoByEmail(email);
+    }
 }

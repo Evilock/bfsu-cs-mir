@@ -24,4 +24,9 @@ public interface UserInfoService {
      * 获取用户余额
      */
     DepositEntity getDeposit(Integer uid);
+
+    /**
+     * 根据邮箱查找
+     */
+    UserInfo getUserInfoByEmail(String uid);
 }

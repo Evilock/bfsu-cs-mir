@@ -1,5 +1,7 @@
 package com.shiye.mir.service;
 
+import com.shiye.mir.enums.EnumEmailSendStatus;
+
 /**
  * 邮件发送服务接口
  * @author fangshaozu_sx
@@ -19,8 +21,9 @@ public interface MailService {
      * @param to 发送方
      * @param subject 接收方
      * @param content 内容
+     * @return 发送状态返回
      */
-    void sendHtmlEmail(String to,String subject, String content);
+    EnumEmailSendStatus sendHtmlEmail(String to, String subject, String content);
 
     /**
      * 带附件的邮件
