@@ -38,7 +38,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public DepositEntity getDeposit(Integer uid) {
+    public DepositEntity getDeposit(String uid) {
         return depositDao.selectDepositDao(uid);
     }
 

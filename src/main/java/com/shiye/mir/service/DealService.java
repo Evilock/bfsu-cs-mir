@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 public interface DealService {
     /**
      * 余额减少
+     * @param cost 消费
+     * @param uid 用户id
      */
-    void depositDecrease(Integer uid, BigDecimal cost);
+    void depositDecrease(String uid, BigDecimal cost);
 }

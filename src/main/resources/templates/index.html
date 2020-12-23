@@ -41,14 +41,14 @@
 
 			<div class = "middle2">
 				<div class="pickbox">
-					<div class="upload">
-						<input type="file" class ="file" name="file" style="color: transparent; width:60px;"><br>
-					</div>
-					<div class="transfer">
-						<form method="post" action="/getMusicFile" enctype="multipart/form-data">
-							<a href = "/getMusicFile" class="button button-3d button-caution" style="align-self: center; font-weight:bold;">Transfer！</a>
-						</form>
-					</div>
+					<form method="post" action="/getMusicFile" enctype="multipart/form-data">
+						<div class="upload">
+							<input type="file" class ="file" name="file" style="color: transparent; width:60px;"><br>
+						</div>
+						<div class="transfer">
+							<input type="submit" class="button button-3d button-caution" style="align-self: center; font-weight:bold;" value="Transfer!">
+						</div>
+					</form>
 					<div class="download">
 						<form method="get">
 							<a href = "/downloadTracks" class="button button-3d button-primary button-rounded" style="align-self: center; font-weight:bold;">download!</a>

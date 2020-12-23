@@ -19,7 +19,7 @@ public class DealServiceImpl implements DealService {
     private DepositDao depositDao;
 
     @Override
-    public void depositDecrease(Integer uid, BigDecimal cost) {
+    public void depositDecrease(String uid, BigDecimal cost) {
         DepositEntity oldValue = depositDao.selectDepositDao(uid);
         depositDao.depositUpdate(uid,oldValue.getDeposit().subtract(cost));
     }

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class DepositEntity {
 
     /** 用户ID */
-    private Integer id;
+    private String id;
 
     /** 余额 */
     private BigDecimal deposit;

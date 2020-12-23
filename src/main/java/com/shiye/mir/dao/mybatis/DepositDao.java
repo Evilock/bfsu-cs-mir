@@ -18,7 +18,7 @@ public interface DepositDao {
      * @param id 用户id
      * @return 余额
      */
-    DepositEntity selectDepositDao(@Param("id") Integer id);
+    DepositEntity selectDepositDao(@Param("id") String id);
 
 
     /**
@@ -26,5 +26,5 @@ public interface DepositDao {
      * @param id 用户id
      * @param newValue 新的余额
      */
-    void depositUpdate(@Param("id") Integer id, BigDecimal newValue);
+    void depositUpdate(@Param("id") String id, BigDecimal newValue);
 }

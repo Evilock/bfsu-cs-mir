@@ -34,12 +34,21 @@ public enum EnumResponseCode implements IEnum<String>{
     /** 邮箱已被注册 */
     EMAIL_EXIST("R00405","邮箱已被注册"),
 
-
     PASSWORD_DIF("P00400","两次输入不一致！"),
     WRONG_VERIFY_2("P00401","验证码错误"),
-    INPUT_CHECK("P00402","请检查输入");
+    INPUT_CHECK("P00402","请检查输入"),
 
 
+    FILE_UP_SUCCESS("F00200","文件上传成功"),
+    FILE_UP_FAILED("F00400","文件上传失败"),
+    FILE_UP_TOO_BIG("F00401","上传的文件太大"),
+
+    FILE_DOWN_SUCCESS("F00200","文件下载成功"),
+    FILE_DOWN_FAILED("F00400","文件下载失败"),
+
+    FILE_SEPARATE_SUCCESS("S00200","模型转换成功"),
+    FILE_SEPARATE_FAILED("S00400","模型转换失败"),
+    UNKNOWN_ERROR("C00000","未知错误");
 
     private String code;
 

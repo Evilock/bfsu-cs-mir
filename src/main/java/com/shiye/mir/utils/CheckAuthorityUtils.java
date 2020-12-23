@@ -17,7 +17,7 @@ public class CheckAuthorityUtils {
     /**
      * 查询用户余额
      */
-    public static boolean checkDeposit(BigDecimal cost, Integer id){
+    public static boolean checkDeposit(BigDecimal cost, String id){
         return cost.compareTo(MysqlDao.getDepositByUid(id).getDeposit())>0;
     }
 

@@ -23,7 +23,7 @@ public interface UserInfoService {
     /**
      * 获取用户余额
      */
-    DepositEntity getDeposit(Integer uid);
+    DepositEntity getDeposit(String uid);
 
     /**
      * 根据邮箱查找

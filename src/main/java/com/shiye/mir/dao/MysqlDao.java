@@ -15,7 +15,7 @@ public class MysqlDao {
     @Resource
     private static DepositDao depositDao;
 
-    public static DepositEntity getDepositByUid(Integer id) {
+    public static DepositEntity getDepositByUid(String id) {
         return depositDao.selectDepositDao(id);
     }
 }
