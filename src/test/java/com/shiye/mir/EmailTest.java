@@ -1,7 +1,7 @@
 package com.shiye.mir;
 
 import com.shiye.mir.service.MailService;
-import com.shiye.mir.utils.CheckAuthorityUtils;
+import com.shiye.mir.utils.CommonUtils;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
@@ -28,10 +28,10 @@ public class EmailTest {
 
     @Test
     public void utilTest(){
-        System.out.println(CheckAuthorityUtils.checkEmail("8937546464@qq.com"));
-        System.out.println(CheckAuthorityUtils.checkEmail("email@qq.com"));
-        System.out.println(CheckAuthorityUtils.checkEmail("8937546464·qq.com"));
-        System.out.println(CheckAuthorityUtils.checkEmail("89375.46464@qq.com"));
+        System.out.println(CommonUtils.checkEmail("8937546464@qq.com"));
+        System.out.println(CommonUtils.checkEmail("email@qq.com"));
+        System.out.println(CommonUtils.checkEmail("8937546464·qq.com"));
+        System.out.println(CommonUtils.checkEmail("89375.46464@qq.com"));
     }
     @Test
     public void printA(){

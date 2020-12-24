@@ -3,6 +3,9 @@ package com.shiye.mir.utils;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * @author fangshaozu_sx
+ */
 public class RandomUtils extends org.apache.commons.lang3.RandomUtils {
 
     private static final char[] CODE_SEQ = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J',

@@ -1,10 +1,8 @@
 package com.shiye.mir.controller;
 
 import com.shiye.mir.entity.ApiResponse;
-import com.shiye.mir.enums.EnumSucceedStatus;
 import com.shiye.mir.service.DealService;
 import com.shiye.mir.service.SeparatedService;
-import com.shiye.mir.utils.CheckAuthorityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.math.BigDecimal;
 
 
 /**

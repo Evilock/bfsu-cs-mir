@@ -48,6 +48,8 @@ public enum EnumResponseCode implements IEnum<String>{
 
     FILE_SEPARATE_SUCCESS("S00200","模型转换成功"),
     FILE_SEPARATE_FAILED("S00400","模型转换失败"),
+    FILE_COMPRESS_SUCCESS("C00200","文件压缩成功"),
+    FILE_COMPRESS_FAILED("C00400","文件压缩失败"),
     UNKNOWN_ERROR("C00000","未知错误");
 
     private String code;

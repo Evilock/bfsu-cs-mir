@@ -1,5 +1,6 @@
 package com.shiye.mir.service.impl;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import com.shiye.mir.config.LocalCacheConfig;
 import com.shiye.mir.entity.VerifyCode;
@@ -7,6 +8,7 @@ import com.shiye.mir.service.IVerifyCodeGen;
 import com.shiye.mir.utils.LocalMapCache;
 import com.shiye.mir.utils.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -23,10 +25,11 @@ import java.util.Random;
  * @author fangshaozu
  */
 @Slf4j
+@Service
 public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
 
-    //@Resource(name = "stringLocalCache")
-    //public LoadingCache<String,String> loadingCache;
+    @Resource(name="localCacheOne")
+    private Cache<String,Object> localCache;
 
     private static final String[] FONT_TYPES = { "\u5b8b\u4f53", "\u65b0\u5b8b\u4f53", "\u9ed1\u4f53", "\u6977\u4f53", "\u96b6\u4e66" };
 
@@ -38,14 +41,11 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
      * 设置背景颜色及大小，干扰线
      */
     private static void fillBackground(Graphics graphics, int width, int height) {
-        // 填充背景
         graphics.setColor(Color.WHITE);
-        //设置矩形坐标x y 为0
         graphics.fillRect(0, 0, width, height);
 
         // 加入干扰线条
         for (int i = 0; i < 8; i++) {
-            //设置随机颜色算法参数
             graphics.setColor(RandomUtils.randomColor(40, 150));
             Random random = new Random();
             int x = random.nextInt(width);
@@ -67,7 +67,6 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
         String randomStr = RandomUtils.randomString(VALICATE_CODE_LENGTH);
         createCharacter(graphics, randomStr);
         graphics.dispose();
-        //设置JPEG格式
         ImageIO.write(image, "JPEG", os);
         return randomStr;
     }
@@ -79,7 +78,6 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
     public VerifyCode generate(int width, int height) {
         VerifyCode verifyCode = null;
         try (
-                //将流的初始化放到这里就不需要手动关闭流
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ) {
             String code = generate(width, height, baos);
@@ -99,12 +97,9 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
     private void createCharacter(Graphics g, String randomStr) {
         char[] charArray = randomStr.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
-            //设置RGB颜色算法参数
             g.setColor(new Color(50 + RandomUtils.nextInt(100),
                     50 + RandomUtils.nextInt(100), 50 + RandomUtils.nextInt(100)));
-            //设置字体大小，类型
             g.setFont(new Font(FONT_TYPES[RandomUtils.nextInt(FONT_TYPES.length)], Font.BOLD, 26));
-            //设置x y 坐标
             g.drawString(String.valueOf(charArray[i]), 15 * i + 5, 19 + RandomUtils.nextInt(8));
         }
     }
@@ -112,7 +107,8 @@ public class SimpleCharVerifyCodeGenImpl implements IVerifyCodeGen {
     @Override
     public String emailVerifyCode(String to){
         String verifyCode = RandomUtils.randomString(VALICATE_CODE_LENGTH_FOR_EMAIL);
-        //TODO 换成loadingCache.put(to,verifyCode);
+        //localCache.put(to,verifyCode);
+        System.out.println(verifyCode);
         LocalMapCache.getEmailCache().put(to,verifyCode);
         return verifyCode;
     }

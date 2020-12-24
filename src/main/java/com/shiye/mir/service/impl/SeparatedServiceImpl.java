@@ -3,6 +3,7 @@ package com.shiye.mir.service.impl;
 import com.shiye.mir.enums.EnumResponseCode;
 import com.shiye.mir.service.SeparatedService;
 import com.shiye.mir.utils.CommonUtils;
+import com.shiye.mir.utils.CompressDirUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ public class SeparatedServiceImpl implements SeparatedService {
 
     @Value("${file.save.path}")
     private String fileSavePath;
+
+    @Value("${file.compress.path.prefix}")
+    private String fileCompressPath;
 
     @Override
     public EnumResponseCode uploadMusic(MultipartFile file,String userId) {
@@ -42,8 +46,14 @@ public class SeparatedServiceImpl implements SeparatedService {
     }
 
     public EnumResponseCode doSeparate(String userId){
-        //执行脚本
-        return null;
+        //执行脚本，生成文件夹
+
+        //压缩文件夹
+        if(!CompressDirUtil.compressFileToZip(fileCompressPath+userId)){
+            return EnumResponseCode.FILE_COMPRESS_FAILED;
+        }else{
+            return EnumResponseCode.FILE_COMPRESS_SUCCESS;
+        }
     }
 
     @Override
