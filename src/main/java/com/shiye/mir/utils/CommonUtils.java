@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 /**
  * 常规Utils类
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 @Slf4j
 public class CommonUtils {
@@ -51,4 +51,5 @@ public class CommonUtils {
             return false;
         }
     }
+
 }

@@ -1,19 +1,19 @@
-$(document).ready(function(){
-    getUserData();
-});
-function getUserData()
-{
-    var Option =
-        {
-            url: "/index",
-            type: "post",
-            dataType:"html",
-            success: function () {
-                console.log("todo");
-            },
-            error: function () {
-            },
-        };
-    jQuery.ajax(Option);
-    return false;
+function uploadFile() {
+    var fileObj = $("#file")[0].files[0];
+    var form = new FormData();
+    form.append("file", fileObj);
+
+    $.ajax({
+        url:"/getMusicFile",
+        data:form,
+        type:"POST",
+        async: true,
+        processData: false,
+        success: function(data) {
+            alert("success!!\n"+data);
+        },
+        error:function () {
+            alert("ERROR!!\n"+data);
+        }
+    });
 }

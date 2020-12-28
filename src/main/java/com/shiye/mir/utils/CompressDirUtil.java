@@ -11,7 +11,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 文件夹压缩工具类
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 public class CompressDirUtil {
 

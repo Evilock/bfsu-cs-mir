@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 启动伴奏分离类
- * @author fangshaozu_sx
+ * @author fangshaozu
  */
 public interface SeparatedService {
     /**

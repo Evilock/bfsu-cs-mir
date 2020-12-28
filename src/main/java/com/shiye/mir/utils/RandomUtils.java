@@ -4,7 +4,8 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * @author fangshaozu_sx
+ * 随机码生成工具类
+ * @author fangshaozu
  */
 public class RandomUtils extends org.apache.commons.lang3.RandomUtils {
 

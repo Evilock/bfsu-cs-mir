@@ -3,6 +3,7 @@ package com.shiye.mir.controller;
 import com.shiye.mir.entity.ApiResponse;
 import com.shiye.mir.service.DealService;
 import com.shiye.mir.service.SeparatedService;
+import com.shiye.mir.utils.WordsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +33,11 @@ public class MusicSeparateController {
      * step1: 上传将要被分轨的音频文件，存入缓存
      * @param file 上传的音频文件
      */
-    @ResponseBody
     @RequestMapping("/getMusicFile")
     public ApiResponse<Object> getMusicFile(HttpServletRequest request,
                                             @RequestParam("file") MultipartFile file) {
         String userId = request.getSession().getAttribute("userInfo").toString();
+        request.getSession().setAttribute("fileName", file.getOriginalFilename());
         log.info("File uploaded, uid:{}",userId);
         return ApiResponse.of("",separatedService.uploadMusic(file,userId));
     }
@@ -49,10 +50,15 @@ public class MusicSeparateController {
                                HttpServletResponse response) {
 
         log.info("File downloaded, uid:{}",request.getSession().getAttribute("userInfo"));
-        String fileName = "17级附加分.png";
+        String fileNameInSession = request.getSession().getAttribute("fileName").toString();
+        if(fileNameInSession.isEmpty()){
+            return "no";
+        }
+        String fileName = WordsUtils.suffixAbortion(fileNameInSession) + ".zip";
         response.setHeader("content-type", "application/octet-stream");
         response.setContentType("application/octet-stream");
-        response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+        response.setHeader("Content-Disposition", "attachment;filename="
+                + fileName);
         separatedService.downLoadFile(fileName,response);
         return "OK";
     }
