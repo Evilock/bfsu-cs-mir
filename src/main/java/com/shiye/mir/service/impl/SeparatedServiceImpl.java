@@ -28,7 +28,7 @@ public class SeparatedServiceImpl implements SeparatedService {
     @Override
 
     public EnumResponseCode uploadMusic(MultipartFile file,String userId) {
-        String originalName = file.getOriginalFilename();
+        String originalName = WordsUtils.blankToUnder(file.getOriginalFilename());
         if (file.isEmpty()) {
             return EnumResponseCode.FILE_UP_FAILED;
         }

@@ -33,11 +33,12 @@ public class MusicSeparateController {
      * step1: 上传将要被分轨的音频文件，存入缓存
      * @param file 上传的音频文件
      */
+    @ResponseBody
     @RequestMapping("/getMusicFile")
     public ApiResponse<Object> getMusicFile(HttpServletRequest request,
-                                            @RequestParam("file") MultipartFile file) {
+                                            @RequestParam("music") MultipartFile file) {
         String userId = request.getSession().getAttribute("userInfo").toString();
-        request.getSession().setAttribute("fileName", file.getOriginalFilename());
+        request.getSession().setAttribute("fileName", WordsUtils.blankToUnder(file.getOriginalFilename()));
         log.info("File uploaded, uid:{}",userId);
         return ApiResponse.of("",separatedService.uploadMusic(file,userId));
     }
