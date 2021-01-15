@@ -20,5 +20,18 @@ public interface ScriptsService {
      * @param cmdPath 脚本路径
      * @return 结果状态码
      */
-    EnumResponseCode batExec(String cmdPath);
+    EnumResponseCode scriptExec(String cmdPath);
+
+    /**
+     * 生成脚本
+     * @param fileName 文件名
+     */
+    void generateShell(String fileName);
+
+    /**
+     * 执行脚本
+     * @param shellPath 脚本路径
+     * @return 结果状态码
+     */
+    EnumResponseCode shellExec(String shellPath);
 }
