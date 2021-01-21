@@ -20,3 +20,9 @@ $(document).ready(function(){
             });
     });
 });
+
+/* 关闭弹窗 */
+function fade() {
+    document.getElementById("MyDiv").style.display = 'none';
+    document.getElementById("fade").style.display = 'none';
+}

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 登录状态拦截器
+ * @author fangshaozu_sx
  */
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
@@ -18,12 +19,10 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        // 获取用户信息，如果没有用户信息直接返回提示信息
         log.info("未登录过");
         Object userInfo = session.getAttribute("userInfo");
         if (userInfo == null) {
             response.getWriter().write("Please Login In");
-            //response.sendRedirect(request.getContextPath()+"/wechatplatformuser/loginRBAC.html");
             System.out.println("未登录！！！");
             return false;
         } else {

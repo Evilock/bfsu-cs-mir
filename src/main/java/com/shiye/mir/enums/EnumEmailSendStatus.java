@@ -2,6 +2,12 @@ package com.shiye.mir.enums;
 
 import lombok.Getter;
 
+/**
+ * 临时枚举类：邮件发送Enum
+ *
+ * @author fangshaozu_sx
+ */
+
 @Getter
 public enum EnumEmailSendStatus {
 
