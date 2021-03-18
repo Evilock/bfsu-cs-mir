@@ -1,0 +1,34 @@
+@startuml
+
+org.aspectj.lang.annotation.Aspect -> AuthorityCheckAspect
+AuthorityCheckAspect <|- BaseAspect
+AuthorityCheckAspect <.. UserInfoService
+interface org.aspectj.lang.annotation.Aspect
+
+AuthorityCheckAspect --* AdminController
+
+class AdminController{
+    ModelAndView home()
+    ModelAndView index(HttpServletRequest request)
+    ModelAndView self(HttpServletRequest request)
+}
+
+class AuthorityCheckAspect{
+    String appServerHostUrl
+    Boolean needAuthorityCheck
+    Object aroundApiCallPoint(point, request)
+}
+
+class  BaseAspect {
+    void apiCallPoint(HttpServletRequest request)
+    Method getCurrentMethod(ProceedingJoinPoint point)
+}
+
+class UserInfoService{
+    Boolean checkPassword(uid, password)
+    UserInfo getUserInfo(uid)
+    DepositEntity getDeposit(uid)
+    UserInfo getUserInfoByEmail(uid)
+    int changePassword(email, newPassword)
+}
+@enduml

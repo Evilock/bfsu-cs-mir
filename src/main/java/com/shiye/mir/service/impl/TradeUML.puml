@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+AlipayService <|- AlipayServiceImpl
+AlipayServiceImpl <.. com.alipay.api.DefaultAlipayClient
+AlipayServiceImpl <.. AlipayConfig
+interface AlipayService{
+String webPagePay(outTradeNo, totalAmount, subject)
+String appPagePay(outTradeNo, totalAmount, subject)
+String refund(outTradeNo, refundReason, refundAmount, outRequestNo)
+String query(outTradeNo)
+String close(outTradeNo)
+String refundQuery(outTradeNo, outRequestNo)
+}
+
+com.alipay.api.DefaultAlipayClient <|- com.alipay.api.AbstractAlipayClient
+
+abstract class com.alipay.api.AbstractAlipayClient
+
+class AlipayServiceImpl {
+DefaultAlipayClient alipayClient
+AlipayClient alipayClients
+String webPagePay(outTradeNo, totalAmount, subject)
+String appPagePay(outTradeNo, totalAmount, subject)
+String refund(outTradeNo, refundReason, refundAmount, outRequestNo)
+String query(outTradeNo)
+String close(outTradeNo)
+String refundQuery(outTradeNo, outRequestNo)
+}
+
+
+class com.alipay.api.DefaultAlipayClient{
+String privateKey;
+String encryptKey;
+String alipayPublicKey;
+Signer signer;
+alipayClient.pageExecute(alipayRequest)
+alipayClient.execute(alipayRequest)
+}
+
+
+class AlipayConfig{
+String APP_ID
+String APP_PRIVATE_KEY
+String ALIPAY_PUBLIC_KEY
+String notify_url
+String return_url
+String SIGN_TYPE
+String CHARSET
+String GATEWAY_URL
+String log_path
+
+void logResult(sWord)
+}
+
+@enduml

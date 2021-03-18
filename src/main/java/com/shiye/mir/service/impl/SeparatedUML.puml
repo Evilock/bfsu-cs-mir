@@ -1,0 +1,54 @@
+@startuml
+
+SeparatedService <|- SeparatedServiceImpl
+SeparatedServiceImpl <.. ScriptsService
+SeparatedServiceImpl <.. CompressDirUtil
+SeparatedServiceImpl <.. WordsUtils
+CompressDirUtil <.. ZipOutputStream
+SeparatedServiceImpl <.. EnumResponseCode
+
+interface SeparatedService{
+    void uploadMusic(file, userId)
+    EnumResponseCode downLoadFile(fileName, response)
+}
+
+class SeparatedServiceImpl{
+    String savePath
+    String rootPath
+    String suffix
+    String env
+    void uploadMusic(file, userId)
+    EnumResponseCode downLoadFile(fileName, response)
+    EnumResponseCode doSeparate(userId,fileName)
+}
+
+interface ScriptsService{
+    void generateBat(fileName)
+    EnumResponseCode scriptExec(cmdPath)
+    void generateShell(fileName)
+    EnumResponseCode shellExec(shellPath)
+}
+
+class CompressDirUtil{
+    boolean compressFileToZip(compressPath)
+    void compressZip(zipOutput, file, suffixPath)
+    void zip(zipOutput, file, suffixPath)
+    void zipOFile(zipOutput, file)
+}
+
+class WordsUtils{
+String suffixAbortion(input)
+String blankToUnder(input)
+
+}
+
+class ZipOutputStream{
+}
+
+enum EnumResponseCode{
+UNKNOWN_ERROR
+FILE_UP_FAILED
+FILE_SEPARATE_FAILED
+FILE_COMPRESS_SUCCESS
+}
+@enduml

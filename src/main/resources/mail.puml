@@ -1,0 +1,14 @@
+@startuml
+participant Actor
+Actor -> RegisterServiceImpl : sendVerifyMail
+activate RegisterServiceImpl
+RegisterServiceImpl -> MailService : sendHtmlEmail
+activate MailService
+MailService -> MailServiceImpl : sendHtmlEmail
+activate MailServiceImpl
+MailServiceImpl --> MailService
+deactivate MailServiceImpl
+MailService --> RegisterServiceImpl
+deactivate MailService
+return
+@enduml

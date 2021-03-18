@@ -1,0 +1,42 @@
+@startuml
+participant Actor
+Actor -> MusicSeparateController : getMusicFile
+activate MusicSeparateController
+MusicSeparateController -> WordsUtils : blankToUnder
+activate WordsUtils
+WordsUtils --> MusicSeparateController
+deactivate WordsUtils
+MusicSeparateController -> SeparatedService : uploadMusic
+activate SeparatedService
+SeparatedService -> SeparatedServiceImpl : uploadMusic
+activate SeparatedServiceImpl
+SeparatedServiceImpl -> WordsUtils : blankToUnder
+activate WordsUtils
+WordsUtils --> SeparatedServiceImpl
+deactivate WordsUtils
+SeparatedServiceImpl -> SeparatedServiceImpl : doSeparate
+activate SeparatedServiceImpl
+SeparatedServiceImpl -> ScriptsServiceImpl : generateShell
+activate ScriptsServiceImpl
+ScriptsServiceImpl --> SeparatedServiceImpl
+deactivate ScriptsServiceImpl
+SeparatedServiceImpl -> ScriptsServiceImpl : scriptExec
+activate ScriptsServiceImpl
+ScriptsServiceImpl --> SeparatedServiceImpl
+deactivate ScriptsServiceImpl
+SeparatedServiceImpl -> CompressDirUtil : compressFileToZip
+activate CompressDirUtil
+CompressDirUtil -> CompressDirUtil : zipOFile
+activate CompressDirUtil
+CompressDirUtil --> CompressDirUtil
+deactivate CompressDirUtil
+CompressDirUtil --> SeparatedServiceImpl
+deactivate CompressDirUtil
+SeparatedServiceImpl --> SeparatedServiceImpl
+deactivate SeparatedServiceImpl
+SeparatedServiceImpl --> SeparatedService
+deactivate SeparatedServiceImpl
+SeparatedService --> MusicSeparateController
+deactivate SeparatedService
+return
+@enduml

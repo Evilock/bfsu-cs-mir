@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface MailService{
+    sendHtmlEmail(to, subject, content)
+    sendSimpleEmail(to, subject, content)
+    sendAttachmentEmail(to, subject, content, filePath)
+    sendEmailVerifyCode(to)
+}
+
+MailService <|- MailServiceImpl
+
+class MailServiceImpl{
+    from
+    sendHtmlEmail(to, subject, content)
+    sendSimpleEmail(to, subject, content)
+    sendAttachmentEmail(to, subject, content, filePath)
+    sendEmailVerifyCode(to)
+}
+
+MailServiceImpl <.. JavaMailSender
+MailServiceImpl <.. SimpleCharVerifyCodeGen
+JavaMailSender <.. MimeMessage
+
+class JavaMailSender{
+    send(var1)
+    MimeMessage createMimeMessage()
+    MimeMessage createMimeMessage(InputStream var1)
+}
+
+class MimeMessage
+
+interface SimpleCharVerifyCodeGen{
+    FONT_TYPES
+    VALIDATE_CODE_LENGTH
+    VALIDATE_CODE_LENGTH_FOR_EMAIL
+
+    emailVerifyCode(to)
+    generate()
+    fillBackground()
+}
+@enduml

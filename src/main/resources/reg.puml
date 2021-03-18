@@ -1,0 +1,74 @@
+@startuml
+participant Actor
+Actor -> RegisterController : register
+activate RegisterController
+RegisterController -> UserInfoService : getUserInfo
+activate UserInfoService
+UserInfoService -> UserInfoServiceImpl : getUserInfo
+activate UserInfoServiceImpl
+UserInfoServiceImpl -> UserInfoDao : selectUserInfo
+activate UserInfoDao
+UserInfoDao --> UserInfoServiceImpl
+deactivate UserInfoDao
+UserInfoServiceImpl --> UserInfoService
+deactivate UserInfoServiceImpl
+UserInfoService --> RegisterController
+deactivate UserInfoService
+RegisterController -> CommonUtils : checkEmail
+activate CommonUtils
+CommonUtils --> RegisterController
+deactivate CommonUtils
+RegisterController -> UserInfoService : getUserInfo
+activate UserInfoService
+UserInfoService -> UserInfoServiceImpl : getUserInfo
+activate UserInfoServiceImpl
+UserInfoServiceImpl -> UserInfoDao : selectUserInfo
+activate UserInfoDao
+UserInfoDao --> UserInfoServiceImpl
+deactivate UserInfoDao
+UserInfoServiceImpl --> UserInfoService
+deactivate UserInfoServiceImpl
+UserInfoService --> RegisterController
+deactivate UserInfoService
+RegisterController -> RegisterService : insert
+activate RegisterService
+RegisterService -> RegisterServiceImpl : insert
+activate RegisterServiceImpl
+RegisterServiceImpl -> UserInfoDao : insert
+activate UserInfoDao
+UserInfoDao --> RegisterServiceImpl
+deactivate UserInfoDao
+RegisterServiceImpl --> RegisterService
+deactivate RegisterServiceImpl
+RegisterService --> RegisterController
+deactivate RegisterService
+RegisterController -> RegisterService : sendVerifyMail
+activate RegisterService
+RegisterService -> RegisterServiceImpl : sendVerifyMail
+activate RegisterServiceImpl
+RegisterServiceImpl -> MailService : sendHtmlEmail
+activate MailService
+MailService -> MailServiceImpl : sendHtmlEmail
+activate MailServiceImpl
+MailServiceImpl --> MailService
+deactivate MailServiceImpl
+MailService --> RegisterServiceImpl
+deactivate MailService
+RegisterServiceImpl --> RegisterService
+deactivate RegisterServiceImpl
+RegisterService --> RegisterController
+deactivate RegisterService
+RegisterController -> RegisterService : emailFailedLog
+activate RegisterService
+RegisterService -> RegisterServiceImpl : emailFailedLog
+activate RegisterServiceImpl
+RegisterServiceImpl -> UserInfoDao : emailFailedLog
+activate UserInfoDao
+UserInfoDao --> RegisterServiceImpl
+deactivate UserInfoDao
+RegisterServiceImpl --> RegisterService
+deactivate RegisterServiceImpl
+RegisterService --> RegisterController
+deactivate RegisterService
+return
+@enduml

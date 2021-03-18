@@ -1,0 +1,33 @@
+@startuml
+
+
+interface UserInfoDao{
+    int activate()
+    int insert()
+    int changePassword()
+    int emailFailedLog()
+    UserInfo selectUserInfoByLoginName()
+}
+interface MailService{
+    EnumEmailSendStatus sendHtmlEmail(to, subject, content)
+    void sendSimpleEmail(to, subject, content)
+    void sendAttachmentEmail(to, subject, content, filePath)
+    EnumEmailSendStatus sendEmailVerifyCode(to)
+}
+interface RegisterService{
+    EnumEmailSendStatus sendVerifyMail(to, userId)
+    int activate(userId)
+    int emailFailedLog(userId, email, statement()
+}
+RegisterService <|- RegisterServiceImpl
+RegisterServiceImpl <.. UserInfoDao
+RegisterServiceImpl <.. MailService
+class RegisterServiceImpl{
+    EnumEmailSendStatus sendVerifyMail(to, userId)
+    int activate(userId)
+    int emailFailedLog(userId, email, statement()
+}
+
+
+
+@enduml

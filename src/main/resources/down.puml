@@ -1,0 +1,18 @@
+@startuml
+participant Actor
+Actor -> MusicSeparateController : downloadTracks
+activate MusicSeparateController
+MusicSeparateController -> WordsUtils : suffixAbortion
+activate WordsUtils
+WordsUtils --> MusicSeparateController
+deactivate WordsUtils
+MusicSeparateController -> SeparatedService : downLoadFile
+activate SeparatedService
+SeparatedService -> SeparatedServiceImpl : downLoadFile
+activate SeparatedServiceImpl
+SeparatedServiceImpl --> SeparatedService
+deactivate SeparatedServiceImpl
+SeparatedService --> MusicSeparateController
+deactivate SeparatedService
+return
+@enduml

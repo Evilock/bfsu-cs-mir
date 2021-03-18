@@ -1,0 +1,14 @@
+@startuml
+participant Actor
+Actor -> AliPayController : pay
+activate AliPayController
+AliPayController -> AlipayService : webPagePay
+activate AlipayService
+AlipayService -> AlipayServiceImpl : webPagePay
+activate AlipayServiceImpl
+AlipayServiceImpl --> AlipayService
+deactivate AlipayServiceImpl
+AlipayService --> AliPayController
+deactivate AlipayService
+return
+@enduml

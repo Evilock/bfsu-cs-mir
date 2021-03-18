@@ -1,0 +1,50 @@
+@startuml
+
+
+ScriptsService <|- ScriptsServiceImpl
+ScriptsServiceImpl <.. WordsUtils
+ScriptsServiceImpl <.. java.io.File
+ScriptsServiceImpl <.. java.lang.Runtime
+ScriptsServiceImpl <.. java.lang.Process
+ScriptsServiceImpl <.. EnumResponseCode
+java.lang.Runtime -- java.lang.Process
+
+interface ScriptsService{
+    void generateBat(fileName)
+    EnumResponseCode scriptExec(cmdPath)
+    void generateShell(fileName)
+    EnumResponseCode shellExec(shellPath)
+}
+
+class ScriptsServiceImpl{
+    String savePath
+    void generateBat(fileName)
+    EnumResponseCode scriptExec(cmdPath)
+    void generateShell(fileName)
+    EnumResponseCode shellExec(shellPath)
+}
+
+class java.io.File{
+    boolean createNewFile()
+    File getParentFile()
+}
+
+class WordsUtils{
+    String suffixAbortion(input)
+    String blankToUnder(input)
+}
+
+class java.lang.Runtime{
+Runtime getRuntime()
+}
+
+class java.lang.Process{
+InputStream getInputStream()
+}
+
+enum EnumResponseCode{
+FILE_SEPARATE_SUCCESS
+FILE_SEPARATE_FAILED
+FILE_UP_TOO_BIG
+}
+@enduml
